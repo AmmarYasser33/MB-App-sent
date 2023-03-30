@@ -1,0 +1,485 @@
+doctype html
+html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", data-theme="theme-default", data-assets-path="assets/", data-template="vertical-menu-template-no-customizer-starter")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0")
+    title Team | MB App
+    meta(name="description", content="")
+    // Favicon
+    link(rel="icon", type="image/x-icon", href="/assets/img/favicon/favicon.ico")
+    // Fonts
+    link(rel="preconnect", href="https://fonts.googleapis.com")
+    link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap", rel="stylesheet")
+    // Icons
+    link(rel="stylesheet", href="/assets/vendor/fonts/fontawesome.css")
+    link(rel="stylesheet", href="/assets/vendor/fonts/tabler-icons.css")
+    link(rel="stylesheet", href="/assets/vendor/fonts/flag-icons.css")
+    // Core CSS
+    link(rel="stylesheet", href="/assets/vendor/css/rtl/core.css")
+    link(rel="stylesheet", href="/assets/vendor/css/rtl/theme-default.css")
+    link(rel="stylesheet", href="/assets/css/demo.css")
+    // Vendors CSS
+    link(rel="stylesheet", href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css")
+    link(rel="stylesheet", href="/assets/vendor/libs/node-waves/node-waves.css")
+    link(rel="stylesheet", href="/assets/vendor/libs/typeahead-js/typeahead.css")
+    link(rel="stylesheet", href="/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css")
+    link(rel="stylesheet", href="/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css")
+    link(rel="stylesheet", href="/assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css")
+    link(rel="stylesheet", href="/assets/vendor/libs/select2/select2.css")
+    link(rel="stylesheet", href="/assets/vendor/libs/formvalidation/dist/css/formValidation.min.css")
+    // Page CSS
+    link(rel="stylesheet", href="/css/app-styles.css")
+    // Helpers
+    script(src="/assets/vendor/js/helpers.js")
+    // ! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section
+    // ? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.
+    script(src="/assets/js/config.js")
+  body
+    // Layout wrapper
+    .layout-wrapper.layout-content-navbar
+      .layout-container
+        // Menu
+        aside#layout-menu.layout-menu.menu-vertical.menu.bg-menu-theme
+          .app-brand.demo
+            a.app-brand-link(href="/index")
+              span.app-brand-logo.demo
+                svg(width="32", height="22", viewBox="0 0 32 22", fill="none", xmlns="http://www.w3.org/2000/svg")
+                  path(fill-rule="evenodd", clip-rule="evenodd", d="M0.00172773 0V6.85398C0.00172773 6.85398 -0.133178 9.01207 1.98092 10.8388L13.6912 21.9964L19.7809 21.9181L18.8042 9.88248L16.4951 7.17289L9.23799 0H0.00172773Z", fill="#00718a")
+                  path(opacity="0.06", fill-rule="evenodd", clip-rule="evenodd", d="M7.69824 16.4364L12.5199 3.23696L16.5541 7.25596L7.69824 16.4364Z", fill="#161616")
+                  path(opacity="0.06", fill-rule="evenodd", clip-rule="evenodd", d="M8.07751 15.9175L13.9419 4.63989L16.5849 7.28475L8.07751 15.9175Z", fill="#161616")
+                  path(fill-rule="evenodd", clip-rule="evenodd", d="M7.77295 16.3566L23.6563 0H32V6.88383C32 6.88383 31.8262 9.17836 30.6591 10.4057L19.7824 22H13.6938L7.77295 16.3566Z", fill="#00718a")
+              span.app-brand-text.demo.menu-text.fw-bold MB App
+            a.layout-menu-toggle.menu-link.text-large.ms-auto(href="javascript:void(0);")
+              i.ti.menu-toggle-icon.d-none.d-xl-block.ti-sm.align-middle
+              i.ti.ti-x.d-block.d-xl-none.ti-sm.align-middle
+          .menu-inner-shadow
+          ul.menu-inner.py-1
+            
+            // Dashboards
+            li.menu-item.open
+              a.menu-link(href="/index")
+                i.menu-icon.tf-icons.ti.ti-smart-home
+                div(data-i18n="Dashboards") Dashboards
+            // Assistant
+            li.menu-header.small.text-uppercase
+              span.menu-header-text Assistant
+            li.menu-item
+              a.menu-link(href="/workflow")
+                i.menu-icon.tf-icons.ti.ti-text-wrap-disabled
+                div(data-i18n="Workflow") Workflow
+            // Maintenance Base
+            li.menu-header.small.text-uppercase
+              span.menu-header-text Maintenance Base
+            li.menu-item
+              a.menu-link(href="/cars")
+                i.menu-icon.tf-icons.ti.ti-brand-toyota
+                div(data-i18n="Cars") Cars
+            li.menu-item
+              a.menu-link(href="/warehouse")
+                i.menu-icon.tf-icons.ti.ti-building-warehouse
+                div(data-i18n="Warehouse") Warehouse
+            // Team Management
+            - if (loggedUser.role === 'team-leader' || loggedUser.role === 'assistant')
+              li.menu-header.small.text-uppercase
+                span.menu-header-text Team Management
+              li.menu-item.active
+                a.menu-link.active(href="/team")
+                  i.menu-icon.tf-icons.ti.ti-users
+                  div(data-i18n="Team") Team
+            // Support
+            li.menu-header.small.text-uppercase
+              span.menu-header-text Issues
+            li.menu-item
+              a.menu-link(href="#")
+                i.menu-icon.tf-icons.ti.ti-message-report
+                div(data-i18n="Support") Support
+            li.menu-header.small.text-uppercase
+              span.menu-header-text MB App V1.0
+        // / Menu
+        // Layout container
+        .layout-page
+          // Navbar
+          nav#layout-navbar.layout-navbar.container-xxl.navbar.navbar-expand-xl.navbar-detached.align-items-center.bg-navbar-theme
+            .layout-menu-toggle.navbar-nav.align-items-xl-center.me-3.me-xl-0.d-xl-none
+              a.nav-item.nav-link.px-0.me-xl-4(href="javascript:void(0)")
+                i.ti.ti-menu-2.ti-sm
+            #navbar-collapse.navbar-nav-right.d-flex.align-items-center
+              .navbar-nav.align-items-center
+                a.nav-link.style-switcher-toggle.hide-arrow(href="javascript:void(0);")
+                  i.ti.ti-sm
+              ul.navbar-nav.flex-row.align-items-center.ms-auto
+                // User
+                li.nav-item.navbar-dropdown.dropdown-user.dropdown
+                  a.nav-link.dropdown-toggle.hide-arrow(href="javascript:void(0);", data-bs-toggle="dropdown")
+                    i.fa-regular.fa-2x.fa-circle-user
+                  ul.dropdown-menu.dropdown-menu-end
+                    li
+                      a.dropdown-item(href="#")
+                        .d-flex
+                          .flex-shrink-0.me-3
+                            i.fa-regular.fa-2x.fa-circle-user
+                          .flex-grow-1
+                            - const loggedRole = loggedUser.role.replace(/-/g, " ").split(" ").map(word=>word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+                            span.fw-semibold.d-block= `${loggedUser.name}`
+                            small.text-muted= `${loggedRole}`
+                    li
+                      .dropdown-divider
+                    li
+                      a.dropdown-item(href="#")
+                        i.ti.ti-logout.me-2.ti-sm
+                        span.align-middle Log Out
+                // / User
+          // / Navbar
+          // Content wrapper
+          .content-wrapper
+            // Content
+            .container-xxl.flex-grow-1.container-p-y
+              .container-xxl.flex-grow-1.container-p-y
+                .row.g-4.mb-4
+                  .col-sm-6.col-xl-3
+                    .card
+                      .card-body
+                        .d-flex.align-items-start.justify-content-between
+                          .content-left
+                            span Employees
+                            .d-flex.align-items-center.my-1
+                              h4.mb-0.me-2= results
+                            span Total Employees
+                          span.badge.bg-label-primary.rounded.p-2
+                            i.ti.ti-user.ti-sm
+                  .col-sm-6.col-xl-3
+                    .card
+                      .card-body
+                        .d-flex.align-items-start.justify-content-between
+                          .content-left
+                            span Protection Officer
+                            .d-flex.align-items-center.my-1
+                              h4.mb-0.me-2= opNum
+                            span Total PO 
+                          span.badge.bg-label-success.rounded.p-2
+                            i.ti.ti-user-plus.ti-sm
+                  .col-sm-6.col-xl-3
+                    .card
+                      .card-body
+                        .d-flex.align-items-start.justify-content-between
+                          .content-left
+                            span PTS
+                            .d-flex.align-items-center.my-1
+                              h4.mb-0.me-2= ptsExpiredNum
+                            span Expired PTS
+                          span.badge.bg-label-danger.rounded.p-2
+                            i.ti.ti-user-check.ti-sm
+                  .col-sm-6.col-xl-3
+                    .card
+                      .card-body
+                        .d-flex.align-items-start.justify-content-between
+                          .content-left
+                            span No Idea
+                            .d-flex.align-items-center.my-1
+                              h4.mb-0.me-2 0
+                            span Still no idea
+                          span.badge.bg-label-warning.rounded.p-2
+                            i.ti.ti-user-exclamation.ti-sm
+                .card
+                  .card-header.flex-column.flex-md-row
+                    .head-label.text-start
+                      h5.card-title.mb-0 Team Table
+                    .dt-action-buttons.text-end.pt-3.pt-md-0
+                      .dt-buttons
+                        button.dt-button.create-new.btn.btn-primary(tabindex="0", aria-controls="DataTables_Table_0", type="button")
+                          span
+                            i.ti.ti-plus.me-sm-1
+                            span.d-none.d-sm-inline-block(data-bs-toggle="modal", data-bs-target="#additem") Add New Record
+                  // Search Form
+                  .card-body
+                    form(class="dt_adv_search", method="POST")
+                      .row
+                        .col-12
+                          .row.g-3
+                            .col-12.col-sm-6.col-lg-4
+                              label.form-label Name:
+                              input.form-control.dt-input.dt-full-name(type="text", data-column="1", placeholder="Name", data-column-index="0")
+                            .col-12.col-sm-6.col-lg-4
+                              label.form-label SAR ID:
+                              input.form-control.dt-input(type="number", data-column="2", placeholder="0001", data-column-index="1")
+                            .col-12.col-sm-6.col-lg-4
+                              label.form-label Role:
+                              select.form-control.dt-input(placeholder="Choose Status")
+                                option(value="")
+                                option(value="technician") Technician
+                                option(value="senior-technician")
+                                  | Senior Technician
+                                option(value="shift-leader")
+                                  | Shift Leader
+                                option(value="assistant") Assistant
+                                option(value="team-leader") Team Leader
+                            .col-12.col-sm-6.col-lg-4
+                              label.form-label PTS:
+                              select.form-control.dt-input(placeholder="Choose Status")
+                                option(value="")
+                                option(value="active") Active
+                                option(value="expired") Expired
+                            .col-12.col-sm-6.col-lg-4
+                              label.form-label PO:
+                              select.form-control.dt-input(placeholder="Choose Status")
+                                option(value="")
+                                option(value="active") Active
+                                option(value="not-po") Not PO
+                                option(value="expired") Expired
+                            .col-12.col-sm-6.col-lg-4
+                              label.form-label Phone Number:
+                              input.form-control.dt-input(type="text", data-column="6", placeholder="050000000", data-column-index="5")
+                  hr.mt-0
+                  .card-datatable.table-responsive
+                    table.dt-advanced-search.table
+                      thead
+                        tr
+                          th SAR ID
+                          th Name
+                          th Email
+                          th Phone No.
+                          th Nationality
+                          th ID
+                          th Role
+                          th PTS
+                          th PO
+                          th Action
+                      
+                      for user in data 
+                        tr.odd
+                          td= user.sarid
+                          td= user.name
+                          td= user.email
+                          td= user.phone
+                          td= user.nationality
+                          td= user.nationalid
+
+                          - const displayRole = user.role.replace(/-/g, " ").split(" ").map(word=>word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+                          td= `${displayRole!=='Assistant'? displayRole: 'Team Leader Assistant'}`
+                          
+                          td(class="")
+                            if user.pts == "Active"
+                              span.badge.bg-label-success= user.pts
+                            else if user.pts == "Expired"
+                              span.badge.bg-label-danger= user.pts
+                          td(class="")
+                            if user.po == "Active"
+                              span.badge.bg-label-success= user.po
+                            else if user.po == "Expired"
+                              span.badge.bg-label-danger= user.po
+                            else if user.po == "Not PO"
+                              span.badge.bg-label-warning= user.po
+                          td                            
+                            a#showEditModelBtn.btn.btn-sm.btn-icon.item-edit(data-bs-toggle="modal", data-bs-target="#editrecord", data-userId=`${user.sarid}`)
+                              i.text-primary.ti.ti-pencil
+                            //- a#showEditModelBtn.btn.btn-sm.btn-icon.item-edit()
+                              i.text-primary.ti.ti-pencil
+                        
+                      tfoot
+                        tr
+                          th SAR ID
+                          th Name
+                          th Email
+                          th Phone No.
+                          th Nationality
+                          th ID
+                          th Role
+                          th PTS
+                          th PO
+                          th Action
+                // / Advanced Search
+            // / Content
+            #additem.modal.fade(tabindex="-1", aria-hidden="true")
+              .modal-dialog.modal-lg.modal-simple.modal-edit-user
+                .modal-content.p-3.p-md-5
+                  .modal-body
+                    button.btn-close(type="button", data-bs-dismiss="modal", aria-label="Close")
+                    .text-center.mb-4
+                      h3.mb-2 Add New Record
+                      p.text-muted Add new team member.
+                    form#additemForm.row.g-3.fv-plugins-bootstrap5.fv-plugins-framework( novalidate="novalidate", data-select2-id="additemForm")
+                      .col-12.col-md-6
+                        label.form-label(for="SARID") SAR ID
+                        input#addSARID.form-control(type="number", name="SARID", placeholder="0001")
+                      .col-12.col-md-6
+                        label.form-label(for="NationalID") National ID
+                        input#addNationalID.form-control(type="number", name="NationalID", placeholder="National ID")
+                      .col-12
+                        label.form-label(for="Name") Full Name
+                        input#addName.form-control(type="text", name="Name", placeholder="Full Name")
+                      .col-12.col-md-6.fv-plugins-icon-container
+                        label.form-label(for="Email") Email
+                        input#addEmail.form-control(type="text", name="Email", placeholder="xxxxx@xxxx.com")
+                      .col-12.col-md-6
+                        label.form-label(for="PhoneNumber") Phone Number
+                        input#addPhoneNumber.form-control(type="text", name="PhoneNumber", placeholder="5xxxxxxxx")
+                      .col-12.col-md-6
+                        label.form-label(for="Nationality") Nationality
+                        select#addNationality.form-select(name="Nationality", aria-label="Default select example")
+                          option(value="")
+                          option(value="Saudi") Saudi
+                          option(value="Pakistani") Pakistani
+                          option(value="Indian") Indian
+                          option(value="Filipino") Filipino
+                      .col-12.col-md-6
+                        label.form-label(for="Role") Role
+                        select#addRole.form-select(name="Role", aria-label="Default select example")
+                          option(value="")
+                          option(value="technician") Technician
+                          option(value="senior-technician")
+                            | Senior Technician
+                          option(value="shift-leader") Shift Leader
+                          option(value="assistant") Assistant
+                          option(value="team-leader") Team Leader
+                      .col-12.col-md-6
+                        label.form-label(for="PTS") PTS
+                        select#addPTS.form-select(name="PTS", aria-label="Default select example")
+                          option(value="")
+                          option(value="Active") Active
+                          option(value="Expired") Expired
+                      .col-12.col-md-6
+                        label.form-label(for="addPTSExpiringDate") PTS Expiring Date
+                        input#addPTSExpiringDate.form-control.dt-input.dt-full-name(type="date", name="addPTSExpiringDate")
+                      .col-12.col-md-6
+                        label.form-label(for="PO") PO
+                        select#addPO.form-select(name="PO", aria-label="Default select example")
+                          option(value="")
+                          option(value="Active") Active
+                          option(value="Expired") Expired
+                          option(value="Not PO") Not PO
+                      .col-12.col-md-6
+                        label.form-label(for="PONumber") PO Number
+                        input#addPONumber.form-control(type="number", name="PONumber", placeholder="0001")
+                      .col-12.col-md-6
+                        label.form-label(for="addPOExpiringDate") PO Expiring Date
+                        input#addPOExpiringDate.form-control.dt-input.dt-full-name(type="date", name="addPOExpiringDate")
+                      .col-12.col-md-6
+                        label.form-label(for="MB") MB
+                        select#addMB.form-select(name="MB", aria-label="Default select example")
+                          option(value="")
+                          option(value="MB1") MB1
+                          option(value="MB2") MB2
+                          option(value="MB3") MB3
+                          option(value="MB4") MB4
+                          option(value="MB5") MB5
+                          option(value="MB6") MB6
+                          option(value="MB7") MB7
+                          option(value="MB8") MB8
+                          option(value="MB9") MB9
+                      .col-12.mb-4
+                        label.form-label(for="Name") Remarks
+                        textarea#autosize-demo.addComment.form-control(rows="3", spellcheck="false")
+                      .col-12.text-center
+                        button#btnAdd.btn.btn-primary.me-sm-3.me-1.waves-effect.waves-light(type="submit")
+                          | Add
+                        button.btn.btn-label-secondary.waves-effect(type="reset", data-bs-dismiss="modal", aria-label="Close")
+                          | Cancel
+                      input(type="hidden")
+            // Edit
+            
+            #editrecord.modal.fade(tabindex="-1", aria-hidden="true")
+              .modal-dialog.modal-lg.modal-simple.modal-edit-user
+                .modal-content.p-3.p-md-5
+                  .modal-body
+                    button.btn-close(type="button", data-bs-dismiss="modal", aria-label="Close")
+                    .text-center.mb-4
+                      h3.mb-2 Edit Record
+                      p.text-muted Edit team member.
+                    form#edititemForm.row.g-3.fv-plugins-bootstrap5.fv-plugins-framework( novalidate="novalidate", data-select2-id="edititemForm")
+                      .col-12.col-md-6
+                        label.form-label(for="SARID") SAR ID
+                        input#editSARID.form-control(type="number", name="SARID", value="2555", placeholder="0001" disabled)
+                      .col-12.col-md-6
+                        label.form-label(for="NationalID") National ID
+                        input#editNationalID.form-control(type="number", name="NationalID", value="11001234221", placeholder="National ID")
+                      .col-12
+                        label.form-label(for="Name") Full Name
+                        input#editName.form-control(type="text", name="Name", value="Ali Khalid", placeholder="Full Name")
+                      .col-12.col-md-6.fv-plugins-icon-container
+                        label.form-label(for="Email") Email
+                        input#editEmail.form-control(type="text", name="Email", value="ali@gmail.com", placeholder="xxxxx@xxxx.com")
+                      .col-12.col-md-6
+                        label.form-label(for="PhoneNumber") Phone Number
+                        input#editPhoneNumber.form-control(type="text", name="PhoneNumber", value="5001100220", placeholder="5xxxxxxxx")
+                      .col-12.col-md-6
+                        label.form-label(for="Nationality") Nationality
+                        select#editNationality.form-select(name="Nationality", aria-label="Default select example")
+                          option(value="")
+                          option(selected, value="Saudi") Saudi
+                          option(value="Pakistani") Pakistani
+                          option(value="Indian") Indian
+                          option(value="Filipino") Filipino
+                      .col-12.col-md-6
+                        label.form-label(for="Role") Role
+                        select#editRole.form-select(name="Role", aria-label="Default select example")
+                          option(value="")
+                          option(selected, value="technician")
+                            | Technician
+                          option(value="senior-technician")
+                            | Senior Technician
+                          option(value="shift-leader") Shift Leader
+                          option(value="assistant") Assistant
+                          option(value="team-leader") Team Leader
+                      .col-12.col-md-6
+                        label.form-label(for="PTS") PTS
+                        select#editPTS.form-select(name="PTS", aria-label="Default select example")
+                          option(value="")
+                          option(selected, value="Active") Active
+                          option(value="Expired") Expired
+                      .col-12.col-md-6
+                        label.form-label(for="editPTSExpiringDate") PTS Expiring Date
+                        input#editPTSExpiringDate.form-control.dt-input.dt-full-name(type="date", name="editPTSExpiringDate", value="2024-01-01")
+                      .col-12.col-md-6
+                        label.form-label(for="PO") PO
+                        select#editPO.form-select(name="PO", aria-label="Default select example")
+                          option(value="")
+                          option(selected, value="Active") Active
+                          option(value="Expired") Expired
+                          option(value="Not PO") Not PO
+                      .col-12.col-md-6
+                        label.form-label(for="PONumber") PO Number
+                        input#editPONumber.form-control(type="number", name="PONumber", value="6322", placeholder="0001")
+                      .col-12.col-md-6
+                        label.form-label(for="POExpiringDate") PO Expiring Date
+                        input#editPOExpiringDate.form-control.dt-input.dt-full-name(type="date", name="POExpiringDate", value="2024-01-01")
+                      .col-12.col-md-6
+                        label.form-label(for="MB") MB
+                        select#editMB.form-select(name="MB", aria-label="Default select example")
+                          option(value="")
+                          option(value="MB1") MB1
+                          option(value="MB2") MB2
+                          option(value="MB3") MB3
+                          option(value="MB4") MB4
+                          option(selected, value="MB5") MB5
+                          option(value="MB6") MB6
+                          option(value="MB7") MB7
+                          option(value="MB8") MB8
+                          option(value="MB9") MB9
+                      .col-12.mb-4
+                        label.form-label(for="Name") Remarks
+                        textarea#autosize-demo.editComment.form-control(rows="3", spellcheck="false")
+                          | he needs to renew his driving license
+                    .col-12.text-center
+                      button#btnSave.btn.btn-primary.me-sm-3.me-1.waves-effect.waves-light(type="submit")
+                        | Save
+                      button.btn.btn-label-secondary.waves-effect(type="reset", data-bs-dismiss="modal", aria-label="Close")
+                        | Cancel
+                    input(type="hidden")
+                      
+            // Footer
+            footer.content-footer.footer.bg-footer-theme
+              .container-xxl
+            // / Footer
+            .content-backdrop.fade
+          // Content wrapper
+        // / Layout page
+      // Overlay
+      .layout-overlay.layout-menu-toggle
+      // Drag Target Area To SlideIn Menu On Small Screens
+      .drag-target
+    // / Layout wrapper
+    // Core JS
+    script(src="/assets/vendor/js/core.js")
+    script( src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.2/axios.min.js')
+    script(type='module' src="/js/teams.js")

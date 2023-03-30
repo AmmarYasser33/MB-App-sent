@@ -1,0 +1,441 @@
+doctype html
+html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", data-theme="theme-default", data-assets-path="assets/", data-template="vertical-menu-template-no-customizer-starter")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0")
+    title Dashboard | MB App
+    meta(name="description", content="")
+    // Favicon
+    link(rel="icon", type="image/x-icon", href="/assets/img/favicon/favicon.ico")
+    // Fonts
+    link(rel="preconnect", href="https://fonts.googleapis.com")
+    link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap", rel="stylesheet")
+    // Icons
+    link(rel="stylesheet", href="/assets/vendor/fonts/fontawesome.css")
+    link(rel="stylesheet", href="/assets/vendor/fonts/tabler-icons.css")
+    link(rel="stylesheet", href="/assets/vendor/fonts/flag-icons.css")
+    // Core CSS
+    link(rel="stylesheet", href="/assets/vendor/css/rtl/core.css")
+    link(rel="stylesheet", href="/assets/vendor/css/rtl/theme-default.css")
+    link(rel="stylesheet", href="/assets/css/demo.css")
+    // Vendors CSS
+    link(rel="stylesheet", href="/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css")
+    link(rel="stylesheet", href="/assets/vendor/libs/node-waves/node-waves.css")
+    // Page CSS
+    link(rel="stylesheet", href="/css/app-styles.css")
+    // Helpers
+    script(src="/assets/vendor/js/helpers.js")
+    // ! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section
+    // ? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.
+    script(src="/assets/js/config.js")
+  body
+    // Layout wrapper
+    .layout-wrapper.layout-content-navbar
+      .layout-container
+        // Menu
+        aside#layout-menu.layout-menu.menu-vertical.menu.bg-menu-theme
+          .app-brand.demo
+            a.app-brand-link(href="/index")
+              span.app-brand-logo.demo
+                svg(width="32", height="22", viewBox="0 0 32 22", fill="none", xmlns="http://www.w3.org/2000/svg")
+                  path(fill-rule="evenodd", clip-rule="evenodd", d="M0.00172773 0V6.85398C0.00172773 6.85398 -0.133178 9.01207 1.98092 10.8388L13.6912 21.9964L19.7809 21.9181L18.8042 9.88248L16.4951 7.17289L9.23799 0H0.00172773Z", fill="#00718a")
+                  path(opacity="0.06", fill-rule="evenodd", clip-rule="evenodd", d="M7.69824 16.4364L12.5199 3.23696L16.5541 7.25596L7.69824 16.4364Z", fill="#161616")
+                  path(opacity="0.06", fill-rule="evenodd", clip-rule="evenodd", d="M8.07751 15.9175L13.9419 4.63989L16.5849 7.28475L8.07751 15.9175Z", fill="#161616")
+                  path(fill-rule="evenodd", clip-rule="evenodd", d="M7.77295 16.3566L23.6563 0H32V6.88383C32 6.88383 31.8262 9.17836 30.6591 10.4057L19.7824 22H13.6938L7.77295 16.3566Z", fill="#00718a")
+              span.app-brand-text.demo.menu-text.fw-bold MB App
+            a.layout-menu-toggle.menu-link.text-large.ms-auto(href="javascript:void(0);")
+              i.ti.menu-toggle-icon.d-none.d-xl-block.ti-sm.align-middle
+              i.ti.ti-x.d-block.d-xl-none.ti-sm.align-middle
+          .menu-inner-shadow
+          ul.menu-inner.py-1
+            
+            // Dashboards
+            li.menu-item.open.active
+              a.menu-link.active(href="/index")
+                i.menu-icon.tf-icons.ti.ti-smart-home
+                div(data-i18n="Dashboards") Dashboards
+            // Assistant
+            li.menu-header.small.text-uppercase
+              span.menu-header-text Assistant
+            li.menu-item
+              a.menu-link(href="/workflow")
+                i.menu-icon.tf-icons.ti.ti-text-wrap-disabled
+                div(data-i18n="Workflow") Workflow
+            // Maintenance Base
+            li.menu-header.small.text-uppercase
+              span.menu-header-text Maintenance Base
+            li.menu-item
+              a.menu-link(href="/cars")
+                i.menu-icon.tf-icons.ti.ti-brand-toyota
+                div(data-i18n="Cars") Cars
+            li.menu-item
+              a.menu-link(href="/warehouse")
+                i.menu-icon.tf-icons.ti.ti-building-warehouse
+                div(data-i18n="Warehouse") Warehouse
+            // Team Management
+            - if (loggedUser.role === 'team-leader' || loggedUser.role === 'assistant')
+              li.menu-header.small.text-uppercase
+                span.menu-header-text Team Management
+              li.menu-item
+                a.menu-link(href="/team")
+                  i.menu-icon.tf-icons.ti.ti-users
+                  div(data-i18n="Team") Team
+            // Support
+            li.menu-header.small.text-uppercase
+              span.menu-header-text Issues
+            li.menu-item
+              a.menu-link(href="#")
+                i.menu-icon.tf-icons.ti.ti-message-report
+                div(data-i18n="Support") Support
+            li.menu-header.small.text-uppercase
+              span.menu-header-text MB App V1.0
+        // / Menu
+        // Layout container
+        .layout-page
+          // Navbar
+          nav#layout-navbar.layout-navbar.container-xxl.navbar.navbar-expand-xl.navbar-detached.align-items-center.bg-navbar-theme
+            .layout-menu-toggle.navbar-nav.align-items-xl-center.me-3.me-xl-0.d-xl-none
+              a.nav-item.nav-link.px-0.me-xl-4(href="javascript:void(0)")
+                i.ti.ti-menu-2.ti-sm
+            #navbar-collapse.navbar-nav-right.d-flex.align-items-center
+              .navbar-nav.align-items-center
+                a.nav-link.style-switcher-toggle.hide-arrow(href="javascript:void(0);")
+                  i.ti.ti-sm
+              ul.navbar-nav.flex-row.align-items-center.ms-auto
+                // User
+                li.nav-item.navbar-dropdown.dropdown-user.dropdown
+                  a.nav-link.dropdown-toggle.hide-arrow(href="javascript:void(0);", data-bs-toggle="dropdown")
+                    i.fa-regular.fa-2x.fa-circle-user
+                  ul.dropdown-menu.dropdown-menu-end
+                    li
+                      a.dropdown-item(href="#")
+                        .d-flex
+                          .flex-shrink-0.me-3
+                            i.fa-regular.fa-2x.fa-circle-user
+                          .flex-grow-1
+                            - const loggedRole = loggedUser.role.replace(/-/g, " ").split(" ").map(word=>word.charAt(0).toUpperCase() + word.slice(1)).join(" ");
+                            span.fw-semibold.d-block= `${loggedUser.name}`
+                            small.text-muted= `${loggedRole}`
+                    li
+                      .dropdown-divider
+                    li
+                      a.dropdown-item(href="#")
+                        i.ti.ti-logout.me-2.ti-sm
+                        span.align-middle Log Out
+                // / User
+          // / Navbar
+          // Content wrapper
+          .content-wrapper
+            // Content
+            .container-xxl.flex-grow-1.container-p-y
+              .row
+                // View sales
+                .col-xl-4.mb-4.col-lg-5.col-12
+                  .card
+                    .d-flex.align-items-end.row
+                      .col-7
+                        .card-body.text-nowrap
+                          h5.card-title.mb-0 Congratulations Waqas! 🎉
+                          p.mb-2 Best shift leader of the month
+                          h4.text-primary.mb-1 December 2022
+                          a.btn.btn-primary(href="https://drive.google.com/file/d/1tFudhiNvTUkKhI6XstevnY9Q7jLY_ROe/view?usp=sharing") View Certificate
+                      .col-5.text-center.text-sm-left
+                        .card-body.pb-0.px-0.px-md-4
+                          img(src="../assets/img/illustrations/card-advance-sale.png", height="140", alt="view sales")
+                // View sales
+                // Statistics
+                .col-xl-8.mb-4.col-lg-7.col-12
+                  .card.h-100
+                    .card-header
+                      .d-flex.justify-content-between.mb-3
+                        h5.card-title.mb-0 Statistics
+                    .card-body
+                      .row.gy-3
+                        .col-md-3.col-6
+                          .d-flex.align-items-center
+                            .badge.rounded-pill.bg-label-danger.me-3.p-2
+                              i.ti.ti-alert-octagon.ti-sm
+                            .card-info
+                              h5.mb-0 38
+                              small Open
+                        .col-md-3.col-6
+                          .d-flex.align-items-center
+                            .badge.rounded-pill.bg-label-primary.me-3.p-2
+                              i.ti.ti-box.ti-sm
+                            .card-info
+                              h5.mb-0 16
+                              small Spare Part
+                        .col-md-3.col-6
+                          .d-flex.align-items-center
+                            .badge.rounded-pill.bg-label-warning.me-3.p-2
+                              i.ti.ti-eye-check.ti-sm
+                            .card-info
+                              h5.mb-0 4
+                              small Under Observation
+                        .col-md-3.col-6
+                          .d-flex.align-items-center
+                            .badge.rounded-pill.bg-label-success.me-3.p-2
+                              i.ti.ti-checks.ti-sm
+                            .card-info
+                              h5.mb-0 122
+                              small Closed
+                // / Statistics
+                // Team by Speciality
+                .col-xl-8.mb-4.col-lg-7.col-12
+                  .card.h-100
+                    .card-header.d-flex.justify-content-between.pb-2.mb-1
+                      .card-title.mb-1
+                        h5.m-0.me-2 Team by Speciality
+                        small.text-muted 7 Team Members in Your Team
+                    .card-body
+                      .nav-align-top
+                        ul.nav.nav-tabs.nav-fill(role="tablist")
+                          li.nav-item
+                            button.nav-link.active(type="button", role="tab", data-bs-toggle="tab", data-bs-target="#navs-justified-signaling", aria-controls="navs-justified-signaling", aria-selected="true")  Signaling 
+                          li.nav-item
+                            button.nav-link(type="button", role="tab", data-bs-toggle="tab", data-bs-target="#navs-justified-telecom", aria-controls="navs-justified-telecom", aria-selected="false")  Telecom 
+                          li.nav-item
+                            button.nav-link(type="button", role="tab", data-bs-toggle="tab", data-bs-target="#navs-justified-electro", aria-controls="navs-justified-electro", aria-selected="false")  Electro 
+                          li.nav-item
+                            button.nav-link(type="button", role="tab", data-bs-toggle="tab", data-bs-target="#navs-justified-gsmr", aria-controls="navs-justified-gsmr", aria-selected="false")  GSM-R 
+                        .tab-content.pb-0
+                          #navs-justified-signaling.tab-pane.fade.show.active(role="tabpanel")
+                            ul.p-0.m-0
+                              li.d-flex.mb-3.pb-1.align-items-center
+                                .badge.bg-label-primary.me-3.rounded.p-2
+                                  i.ti.ti-user-circle.ti-sm
+                                .d-flex.w-100.flex-wrap.align-items-center.justify-content-between.gap-2
+                                  .me-2
+                                    h6.mb-0 Waqas Ahmed
+                                  .user-progress.d-flex.align-items-center.gap-1
+                                    h6.mb-0.text-primary 100%
+                            .border-bottom.border-bottom-dashed.mt-0.mb-4
+                            ul.p-0.m-0
+                              li.d-flex.mb-3.pb-1.align-items-center
+                                .badge.bg-label-success.me-3.rounded.p-2
+                                  i.ti.ti-user-circle.ti-sm
+                                .d-flex.w-100.flex-wrap.align-items-center.justify-content-between.gap-2
+                                  .me-2
+                                    h6.mb-0 Mohammed Al-Saiari
+                                  .user-progress.d-flex.align-items-center.gap-1
+                                    h6.mb-0.text-success 80%
+                            .border-bottom.border-bottom-dashed.mt-0.mb-4
+                            ul.p-0.m-0
+                              li.d-flex.mb-3.pb-1.align-items-center
+                                .badge.bg-label-warning.me-3.rounded.p-2
+                                  i.ti.ti-user-circle.ti-sm
+                                .d-flex.w-100.flex-wrap.align-items-center.justify-content-between.gap-2
+                                  .me-2
+                                    h6.mb-0 Al-Waleed Al-Zahrni
+                                  .user-progress.d-flex.align-items-center.gap-1
+                                    h6.mb-0.text-warning 60%
+                            .border-bottom.border-bottom-dashed.mt-0.mb-4
+                            ul.p-0.m-0
+                              li.d-flex.mb-3.pb-1.align-items-center
+                                .badge.bg-label-danger.me-3.rounded.p-2
+                                  i.ti.ti-user-circle.ti-sm
+                                .d-flex.w-100.flex-wrap.align-items-center.justify-content-between.gap-2
+                                  .me-2
+                                    h6.mb-0 Faisal Al-Juhani
+                                  .user-progress.d-flex.align-items-center.gap-1
+                                    h6.mb-0.text-danger 40%
+                          // Telecom
+                          #navs-justified-telecom.tab-pane.fade(role="tabpanel")
+                            ul.p-0.m-0
+                              li.d-flex.mb-3.pb-1.align-items-center
+                                .badge.bg-label-primary.me-3.rounded.p-2
+                                  i.ti.ti-user-circle.ti-sm
+                                .d-flex.w-100.flex-wrap.align-items-center.justify-content-between.gap-2
+                                  .me-2
+                                    h6.mb-0 Waqas Ahmed
+                                  .user-progress.d-flex.align-items-center.gap-1
+                                    h6.mb-0.text-primary 100%
+                            .border-bottom.border-bottom-dashed.mt-0.mb-4
+                            ul.p-0.m-0
+                              li.d-flex.mb-3.pb-1.align-items-center
+                                .badge.bg-label-success.me-3.rounded.p-2
+                                  i.ti.ti-user-circle.ti-sm
+                                .d-flex.w-100.flex-wrap.align-items-center.justify-content-between.gap-2
+                                  .me-2
+                                    h6.mb-0 Abdulaziz Al-Harbi
+                                  .user-progress.d-flex.align-items-center.gap-1
+                                    h6.mb-0.text-success 80%
+                            .border-bottom.border-bottom-dashed.mt-0.mb-4
+                            ul.p-0.m-0
+                              li.d-flex.mb-3.pb-1.align-items-center
+                                .badge.bg-label-warning.me-3.rounded.p-2
+                                  i.ti.ti-user-circle.ti-sm
+                                .d-flex.w-100.flex-wrap.align-items-center.justify-content-between.gap-2
+                                  .me-2
+                                    h6.mb-0 Mohammed Al-Saiari
+                                  .user-progress.d-flex.align-items-center.gap-1
+                                    h6.mb-0.text-warning 60%
+                            .border-bottom.border-bottom-dashed.mt-0.mb-4
+                            ul.p-0.m-0
+                              li.d-flex.mb-3.pb-1.align-items-center
+                                .badge.bg-label-danger.me-3.rounded.p-2
+                                  i.ti.ti-user-circle.ti-sm
+                                .d-flex.w-100.flex-wrap.align-items-center.justify-content-between.gap-2
+                                  .me-2
+                                    h6.mb-0 Awwad Al-Shammari
+                                  .user-progress.d-flex.align-items-center.gap-1
+                                    h6.mb-0.text-danger 40%
+                          // Electro
+                          #navs-justified-electro.tab-pane.fade(role="tabpanel")
+                            ul.p-0.m-0
+                              li.d-flex.mb-3.pb-1.align-items-center
+                                .badge.bg-label-primary.me-3.rounded.p-2
+                                  i.ti.ti-user-circle.ti-sm
+                                .d-flex.w-100.flex-wrap.align-items-center.justify-content-between.gap-2
+                                  .me-2
+                                    h6.mb-0 Abdulaziz Al-Harbi
+                                  .user-progress.d-flex.align-items-center.gap-1
+                                    h6.mb-0.text-primary 100%
+                            .border-bottom.border-bottom-dashed.mt-0.mb-4
+                            ul.p-0.m-0
+                              li.d-flex.mb-3.pb-1.align-items-center
+                                .badge.bg-label-success.me-3.rounded.p-2
+                                  i.ti.ti-user-circle.ti-sm
+                                .d-flex.w-100.flex-wrap.align-items-center.justify-content-between.gap-2
+                                  .me-2
+                                    h6.mb-0 Waqas Ahmed
+                                  .user-progress.d-flex.align-items-center.gap-1
+                                    h6.mb-0.text-success 80%
+                            .border-bottom.border-bottom-dashed.mt-0.mb-4
+                            ul.p-0.m-0
+                              li.d-flex.mb-3.pb-1.align-items-center
+                                .badge.bg-label-warning.me-3.rounded.p-2
+                                  i.ti.ti-user-circle.ti-sm
+                                .d-flex.w-100.flex-wrap.align-items-center.justify-content-between.gap-2
+                                  .me-2
+                                    h6.mb-0 Mohammed Al-Saiari
+                                  .user-progress.d-flex.align-items-center.gap-1
+                                    h6.mb-0.text-warning 60%
+                            .border-bottom.border-bottom-dashed.mt-0.mb-4
+                            ul.p-0.m-0
+                              li.d-flex.mb-3.pb-1.align-items-center
+                                .badge.bg-label-danger.me-3.rounded.p-2
+                                  i.ti.ti-user-circle.ti-sm
+                                .d-flex.w-100.flex-wrap.align-items-center.justify-content-between.gap-2
+                                  .me-2
+                                    h6.mb-0 Al-Waleed Al-Zahrni
+                                  .user-progress.d-flex.align-items-center.gap-1
+                                    h6.mb-0.text-danger 40%
+                          // GSM-R
+                          #navs-justified-gsmr.tab-pane.fade(role="tabpanel")
+                            ul.p-0.m-0
+                              li.d-flex.mb-3.pb-1.align-items-center
+                                .badge.bg-label-primary.me-3.rounded.p-2
+                                  i.ti.ti-user-circle.ti-sm
+                                .d-flex.w-100.flex-wrap.align-items-center.justify-content-between.gap-2
+                                  .me-2
+                                    h6.mb-0 Al-Waleed Al-Zahrni
+                                  .user-progress.d-flex.align-items-center.gap-1
+                                    h6.mb-0.text-primary 100%
+                            .border-bottom.border-bottom-dashed.mt-0.mb-4
+                            ul.p-0.m-0
+                              li.d-flex.mb-3.pb-1.align-items-center
+                                .badge.bg-label-success.me-3.rounded.p-2
+                                  i.ti.ti-user-circle.ti-sm
+                                .d-flex.w-100.flex-wrap.align-items-center.justify-content-between.gap-2
+                                  .me-2
+                                    h6.mb-0 Awwad Al-Shammari
+                                  .user-progress.d-flex.align-items-center.gap-1
+                                    h6.mb-0.text-success 80%
+                            .border-bottom.border-bottom-dashed.mt-0.mb-4
+                            ul.p-0.m-0
+                              li.d-flex.mb-3.pb-1.align-items-center
+                                .badge.bg-label-warning.me-3.rounded.p-2
+                                  i.ti.ti-user-circle.ti-sm
+                                .d-flex.w-100.flex-wrap.align-items-center.justify-content-between.gap-2
+                                  .me-2
+                                    h6.mb-0 Faisal Al-Juhani
+                                  .user-progress.d-flex.align-items-center.gap-1
+                                    h6.mb-0.text-warning 60%
+                            .border-bottom.border-bottom-dashed.mt-0.mb-4
+                            ul.p-0.m-0
+                              li.d-flex.mb-3.pb-1.align-items-center
+                                .badge.bg-label-danger.me-3.rounded.p-2
+                                  i.ti.ti-user-circle.ti-sm
+                                .d-flex.w-100.flex-wrap.align-items-center.justify-content-between.gap-2
+                                  .me-2
+                                    h6.mb-0 Ahmed Al-Shammari
+                                  .user-progress.d-flex.align-items-center.gap-1
+                                    h6.mb-0.text-danger 40%
+                // / Team by Speciality
+                // Browser States
+                .col-xl-4.col-md-6.mb-4
+                  .card.h-100
+                    .card-header.d-flex.justify-content-between
+                      .card-title.m-0.me-2
+                        h5.m-0.me-2 Work Order per System
+                        small.text-muted Based on Database
+                    .border-bottom.border-bottom-dashed.mt-4.mb-2
+                    .card-body
+                      ul.p-0.m-0
+                        li.d-flex.mb-4.pb-1.align-items-center
+                          .badge.bg-label-primary.me-3.rounded.p-2
+                            i.fa-solid.fa-traffic-light.fa-xl
+                          .d-flex.w-100.align-items-center.gap-2
+                            .d-flex.justify-content-between.flex-grow-1.flex-wrap
+                              div
+                                h6.mb-0 Signaling
+                              .user-progress.d-flex.align-items-center.gap-2
+                                h6.mb-0 64%
+                            .chart-progress(data-color="primary", data-series="64")
+                        .border-bottom.border-bottom-dashed.mt-0.mb-4
+                        li.d-flex.mb-4.pb-1.align-items-center
+                          .badge.bg-label-success.me-3.rounded.p-2
+                            i.fa-solid.fa-car-battery.fa-xl
+                          .d-flex.w-100.align-items-center.gap-2
+                            .d-flex.justify-content-between.flex-grow-1.flex-wrap
+                              div
+                                h6.mb-0 Electro
+                              .user-progress.d-flex.align-items-center.gap-2
+                                h6.mb-0 21%
+                            .chart-progress(data-color="success", data-series="21")
+                        .border-bottom.border-bottom-dashed.mt-0.mb-4
+                        li.d-flex.mb-4.pb-1.align-items-center
+                          .badge.bg-label-warning.me-3.rounded.p-2
+                            i.fa-solid.fa-network-wired.fa-xl
+                          .d-flex.w-100.align-items-center.gap-2
+                            .d-flex.justify-content-between.flex-grow-1.flex-wrap
+                              div
+                                h6.mb-0 Telecom
+                              .user-progress.d-flex.align-items-center.gap-2
+                                h6.mb-0 10%
+                            .chart-progress(data-color="warning", data-series="10")
+                        .border-bottom.border-bottom-dashed.mt-0.mb-4
+                        li.d-flex.mb-4.pb-1.align-items-center
+                          .badge.bg-label-danger.me-3.rounded.p-2
+                            i.fa-solid.fa-tower-cell.fa-xl
+                          .d-flex.w-100.align-items-center.gap-2
+                            .d-flex.justify-content-between.flex-grow-1.flex-wrap
+                              div
+                                h6.mb-0 GSM-R
+                              .user-progress.d-flex.align-items-center.gap-2
+                                h6.mb-0 5%
+                            .chart-progress(data-color="danger", data-series="5")
+                // / Browser States
+                // Yearly Report
+                // / Yearly Report
+            // / Content
+            // Footer
+            footer.content-footer.footer.bg-footer-theme
+              .container-xxl
+            // / Footer
+            .content-backdrop.fade
+          // Content wrapper
+        // / Layout page
+        // Overlay
+      .layout-overlay.layout-menu-toggle
+      // Drag Target Area To SlideIn Menu On Small Screens
+      .drag-target
+      // / Layout wrapper
+    // Core JS
+    script(src="/assets/vendor/js/core.js")
+    // Vendors JS
+    // Main JS
+    script(src="/assets/js/main.js")
+    // Page JS

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" class="light-style layout-navbar-fixed layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="assets/" data-template="vertical-menu-template-no-customizer-starter">
+
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+ <title>Warehouse | MB App</title>
+ <meta name="description" content="" /> <!-- Favicon -->
+ <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" /> <!-- Fonts -->
+ <link rel="preconnect" href="https://fonts.googleapis.com" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" /> <!-- Icons -->
+ <link rel="stylesheet" href="assets/vendor/fonts/fontawesome.css" />
+ <link rel="stylesheet" href="assets/vendor/fonts/tabler-icons.css" />
+ <link rel="stylesheet" href="assets/vendor/fonts/flag-icons.css" /> <!-- Core CSS -->
+ <link rel="stylesheet" href="assets/vendor/css/rtl/core.css" />
+ <link rel="stylesheet" href="assets/vendor/css/rtl/theme-default.css" />
+ <link rel="stylesheet" href="assets/css/demo.css" /> <!-- Vendors CSS -->
+ <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+ <link rel="stylesheet" href="assets/vendor/libs/node-waves/node-waves.css" />
+ <link rel="stylesheet" href="assets/vendor/libs/typeahead-js/typeahead.css" />
+ <link rel="stylesheet" href="assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+ <link rel="stylesheet" href="assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
+ <link rel="stylesheet" href="assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
+ <link rel="stylesheet" href="assets/vendor/libs/select2/select2.css" />
+ <link rel="stylesheet" href="assets/vendor/libs/formvalidation/dist/css/formValidation.min.css" /> <!-- Page CSS -->
+ <!-- Helpers -->
+ <script src="assets/vendor/js/helpers.js"></script>
+ <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+ <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+ <script src="assets/js/config.js"></script>
+</head>
+
+<body>
+ <!-- Layout wrapper -->
+ <div class="layout-wrapper layout-content-navbar">
+  <div class="layout-container">
+   <!-- Menu -->
+   <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+    <div class="app-brand demo"> <a href="index.html" class="app-brand-link"> <span class="app-brand-logo demo"> <svg width="32" height="22" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.00172773 0V6.85398C0.00172773 6.85398 -0.133178 9.01207 1.98092 10.8388L13.6912 21.9964L19.7809 21.9181L18.8042 9.88248L16.4951 7.17289L9.23799 0H0.00172773Z" fill="#00718a" />
+        <path opacity="0.06" fill-rule="evenodd" clip-rule="evenodd" d="M7.69824 16.4364L12.5199 3.23696L16.5541 7.25596L7.69824 16.4364Z" fill="#161616" />
+        <path opacity="0.06" fill-rule="evenodd" clip-rule="evenodd" d="M8.07751 15.9175L13.9419 4.63989L16.5849 7.28475L8.07751 15.9175Z" fill="#161616" />
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.77295 16.3566L23.6563 0H32V6.88383C32 6.88383 31.8262 9.17836 30.6591 10.4057L19.7824 22H13.6938L7.77295 16.3566Z" fill="#00718a" />
+       </svg> </span> <span class="app-brand-text demo menu-text fw-bold">MB App</span> </a> <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto"> <i class="ti menu-toggle-icon d-none d-xl-block ti-sm align-middle"></i> <i class="ti ti-x d-block d-xl-none ti-sm align-middle"></i> </a> </div>
+    <div class="menu-inner-shadow"></div>
+    <ul class="menu-inner py-1">
+     <!-- Dashboards -->
+     <li class="menu-item open"> <a href="index.html" class="menu-link"> <i class="menu-icon tf-icons ti ti-smart-home"></i>
+       <div data-i18n="Dashboards">Dashboards</div>
+      </a> </li> <!-- Assistant -->
+     <li class="menu-header small text-uppercase"> <span class="menu-header-text">Assistant</span> </li>
+     <li class="menu-item "> <a href="workflow.html" class="menu-link active"> <i class="menu-icon tf-icons ti ti-text-wrap-disabled"></i>
+       <div data-i18n="Workflow">Workflow</div>
+      </a> </li> <!-- Maintenance Base -->
+     <li class="menu-header small text-uppercase"> <span class="menu-header-text">Maintenance Base</span> </li>
+     <li class="menu-item"> <a href="cars.html" class="menu-link"> <i class="menu-icon tf-icons ti ti-brand-toyota"></i>
+       <div data-i18n="Cars">Cars</div>
+      </a> </li>
+     <li class="menu-item active"> <a href="warehouse.html" class="menu-link"> <i class="menu-icon tf-icons ti ti-building-warehouse"></i>
+       <div data-i18n="Warehouse">Warehouse</div>
+      </a> </li> <!-- Team Management -->
+     <li class="menu-header small text-uppercase"> <span class="menu-header-text">Team Management</span> </li>
+     <li class="menu-item"> <a href="team.html" class="menu-link"> <i class="menu-icon tf-icons ti ti-users"></i>
+       <div data-i18n="Team">Team</div>
+      </a> </li> <!-- Support -->
+     <li class="menu-header small text-uppercase"> <span class="menu-header-text">Issues</span> </li>
+     <li class="menu-item"> <a href="#" class="menu-link"> <i class="menu-icon tf-icons ti ti-message-report"></i>
+       <div data-i18n="Support">Support</div>
+      </a> </li>
+     <li class="menu-header small text-uppercase"> <span class="menu-header-text">MB App V1.0</span> </li>
+    </ul>
+   </aside> <!-- / Menu -->
+   <!-- Layout container -->
+   <div class="layout-page">
+    <!-- Navbar -->
+    <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
+     <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none"> <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)"> <i class="ti ti-menu-2 ti-sm"></i> </a> </div>
+     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+      <div class="navbar-nav align-items-center"> <a class="nav-link style-switcher-toggle hide-arrow" href="javascript:void(0);"> <i class="ti ti-sm"></i> </a> </div>
+      <ul class="navbar-nav flex-row align-items-center ms-auto">
+       <!-- User -->
+       <li class="nav-item navbar-dropdown dropdown-user dropdown"> <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown"> <i class="fa-regular fa-2x fa-circle-user"></i> </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+         <li> <a class="dropdown-item" href="#">
+           <div class="d-flex">
+            <div class="flex-shrink-0 me-3"> <i class="fa-regular fa-2x fa-circle-user"></i> </div>
+            <div class="flex-grow-1"> <span class="fw-semibold d-block">Waqas Ahmed</span> <small class="text-muted">Shift Leader</small> </div>
+           </div>
+          </a> </li>
+         <li>
+          <div class="dropdown-divider"></div>
+         </li>
+         <li> <a class="dropdown-item" href="#"> <i class="ti ti-logout me-2 ti-sm"></i> <span class="align-middle">Log Out</span> </a> </li>
+        </ul>
+       </li>
+       <!--/ User -->
+      </ul>
+     </div>
+    </nav> <!-- / Navbar -->
+    <!-- Content wrapper -->
+    <div class="content-wrapper">
+     <!-- Content -->
+     <div class="container-xxl flex-grow-1 container-p-y">
+      <div class="card">
+       <div class="card-header flex-column flex-md-row">
+        <div class="head-label text-start">
+         <h5 class="card-title mb-0">Warehouse Table</h5>
+        </div>
+        <div class="dt-action-buttons text-end pt-3 pt-md-0">
+         <div class="dt-buttons"> <button class="dt-button create-new btn btn-primary" tabindex="0" aria-controls="DataTables_Table_0" type="button"> <span> <i class="ti ti-plus me-sm-1"></i> <span class="d-none d-sm-inline-block" data-bs-toggle="modal" data-bs-target="#additem">Add New Record</span> </span> </button> </div>
+        </div>
+       </div>
+       <!--Search Form -->
+       <div class="card-body">
+        <form class="dt_adv_search" method="POST">
+         <div class="row">
+          <div class="col-12">
+           <div class="row g-3">
+            <div class="col-12 col-sm-6 col-lg-4"> <label class="form-label">Name:</label> <input type="text" class="form-control dt-input" data-column="2" placeholder="" data-column-index="1" /> </div>
+            <div class="col-12 col-sm-6 col-lg-4"> <label class="form-label">Serial Number:</label> <input type="number" class="form-control dt-input" data-column="2" placeholder="" data-column-index="1" /> </div>
+            <div class="col-12 col-sm-6 col-lg-4"> <label class="form-label">Status:</label> <select class="form-control dt-input" placeholder="Status">
+              <option value=""></option>
+              <option value="In Warehouse">In Warehouse</option>
+              <option value="Installed">Installed</option>
+              <option value="Sent">Sent</option>
+              <option value="Returned">Returned</option>
+             </select> </div>
+           </div>
+          </div>
+         </div>
+        </form>
+       </div>
+       <hr class="mt-0" />
+       <div class="card-datatable table-responsive">
+        <table class="dt-advanced-search table">
+         <thead>
+          <tr>
+           <th>Date</th>
+           <th>Name</th>
+           <th>Serial No.</th>
+           <th>Part No.</th>
+           <th>From</th>
+           <th>Recieved by</th>
+           <th>Rack</th>
+           <th>Status</th>
+           <th>Action</th>
+          </tr>
+         </thead>
+         <tr class="odd">
+          <td>01/12/2022</td>
+          <td>Analog Board</td>
+          <td>JI153859208</td>
+          <td>3CR01836AEAB</td>
+          <td>Nariyah</td>
+          <td>Eisa</td>
+          <td>R04-A1</td>
+          <td><span class="badge bg-label-danger">Returned</span></td>
+          <td> <a class="btn btn-sm btn-icon item-edit" data-bs-toggle="modal" data-bs-target="#editrecord"><i class="text-primary ti ti-pencil"></i></a> </td>
+         </tr>
+         <tr class="odd">
+          <td>01/12/2022</td>
+          <td>Analog Board</td>
+          <td>JI153859208</td>
+          <td>3CR01836AEAB</td>
+          <td>Nariyah</td>
+          <td>Eisa</td>
+          <td>R04-A1</td>
+          <td><span class="badge bg-label-warning">Sent</span></td>
+          <td> <a class="btn btn-sm btn-icon item-edit" data-bs-toggle="modal" data-bs-target="#editrecord"><i class="text-primary ti ti-pencil"></i></a> </td>
+         </tr>
+         <tr class="odd">
+          <td>01/12/2022</td>
+          <td>Analog Board</td>
+          <td>JI153859208</td>
+          <td>3CR01836AEAB</td>
+          <td>Nariyah</td>
+          <td>Eisa</td>
+          <td>R04-A1</td>
+          <td><span class="badge bg-label-success">Installed</span></td>
+          <td> <a class="btn btn-sm btn-icon item-edit" data-bs-toggle="modal" data-bs-target="#editrecord"><i class="text-primary ti ti-pencil"></i></a> </td>
+         </tr>
+         <tr class="odd">
+          <td>01/12/2022</td>
+          <td>Analog Board</td>
+          <td>JI153859208</td>
+          <td>3CR01836AEAB</td>
+          <td>Nariyah</td>
+          <td>Eisa</td>
+          <td>R04-A1</td>
+          <td><span class="badge bg-label-primary">In Warehouse</span></td>
+          <td> <a class="btn btn-sm btn-icon item-edit" data-bs-toggle="modal" data-bs-target="#editrecord"><i class="text-primary ti ti-pencil"></i></a> </td>
+         </tr>
+         <tfoot>
+          <tr>
+           <th>Date</th>
+           <th>Name</th>
+           <th>Serial No.</th>
+           <th>Part No.</th>
+           <th>From</th>
+           <th>Recieved by</th>
+           <th>Rack</th>
+           <th>Status</th>
+           <th>Action</th>
+          </tr>
+         </tfoot>
+        </table>
+       </div>
+      </div>
+      <!--/ Advanced Search -->
+     </div>
+     <!--/ Content -->
+     <div class="modal fade" id="additem" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-simple modal-edit-user">
+       <div class="modal-content p-3 p-md-5">
+        <div class="modal-body"> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         <div class="text-center mb-4">
+          <h3 class="mb-2">Add New Record</h3>
+          <p class="text-muted">Add new warehouse recieved item.</p>
+         </div>
+         <form id="additemForm" class="row g-3 fv-plugins-bootstrap5 fv-plugins-framework" onsubmit="return false" novalidate="novalidate" data-select2-id="additemForm">
+          <div class="col-12 col-md-6  "> <label class="form-label" for="SerialNumber">Serial Number</label> <input type="text" id="SerialNumber" name="SerialNumber" class="form-control " placeholder="Serial Number"> </div>
+          <div class="col-12 col-md-6  "> <label class="form-label" for="PartNumber">Part Number</label> <input type="text" id="PartNumber" name="PartNumber" class="form-control " placeholder="Part Number"> </div>
+          <div class="col-12  "> <label class="form-label" for="Name">Name</label> <input type="text" id="Name" name="Name" class="form-control " placeholder="Analog Board"> </div>
+          <div class="col-12 col-md-6 fv-plugins-icon-container"> <label class="form-label" for="Reciever">Recieved By</label> <input type="text" id="Reciever" name="Reciever" class="form-control" placeholder="Recieved By"> </div>
+          <div class="col-12 col-md-6  "> <label class="form-label" for="From">From</label> <input type="text" id="From" name="From" class="form-control " placeholder="Part Number"> </div>
+          <div class="col-12 col-md-6"> <label class="form-label" for="DeliveryMethod">Delivery Method</label> <select id="DeliveryMethod" name="DeliveryMethod" class="form-select" aria-label="Default select example">
+            <option value=""></option>
+            <option value="Internal Driver">Internal Driver</option>
+            <option value="DHL">DHL</option>
+            <option value="SPL">SPL</option>
+            <option value="Other">Other</option>
+           </select> </div>
+          <div class="col-12 col-md-6"> <label class="form-label" for="Status">Status</label> <select id="Status" name="Status" class="form-select" aria-label="Default select example">
+            <option value=""></option>
+            <option value="In Warehouse">In Warehouse</option>
+            <option value="Installed">Installed</option>
+            <option value="Sent">Sent</option>
+            <option value="Returned">Returned</option>
+           </select> </div>
+          <div class="col-12 col-md-6"> <label class="form-label" for="modalEditDate">Recieving Date</label> <input type="date" id="modalEditDate" name="modalEditDate" class="form-control dt-input dt-full-name"> </div>
+          <div class="col-12 col-md-6"> <label for="TypeaheadBasic" class="form-label">Rack</label> <input id="TypeaheadBasic" class="form-control typeahead" type="text" autocomplete="off" placeholder="Rack Number" /> </div>
+          <div class="col-12 mb-4  "> <label class="form-label" for="Name">Comments</label> <textarea id="autosize-demo" rows="3" class="form-control" spellcheck="false"></textarea> </div>
+          <div class="col-12 text-center"> <button type="submit" class="btn btn-primary me-sm-3 me-1 waves-effect waves-light">Add</button> <button type="reset" class="btn btn-label-secondary waves-effect" data-bs-dismiss="modal" aria-label="Close">Cancel</button> </div> <input type="hidden">
+         </form>
+        </div>
+       </div>
+      </div>
+     </div> <!-- Edit -->
+     <div class="modal fade" id="editrecord" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-simple modal-edit-user">
+       <div class="modal-content p-3 p-md-5">
+        <div class="modal-body"> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         <div class="text-center mb-4">
+          <h3 class="mb-2">Edit Record</h3>
+          <p class="text-muted">Edit warehouse recieved item.</p>
+         </div>
+         <form id="additemForm" class="row g-3 fv-plugins-bootstrap5 fv-plugins-framework" onsubmit="return false" novalidate="novalidate" data-select2-id="additemForm">
+          <div class="col-12 col-md-6  "> <label class="form-label" for="SerialNumber">Serial Number</label> <input type="text" id="SerialNumber" value="JI153859208" name="SerialNumber" class="form-control " placeholder="Serial Number"> </div>
+          <div class="col-12 col-md-6  "> <label class="form-label" for="PartNumber">Part Number</label> <input type="text" id="PartNumber" value="3CR01836AEAB" name="PartNumber" class="form-control " placeholder="Part Number"> </div>
+          <div class="col-12  "> <label class="form-label" for="Name">Name</label> <input type="text" id="Name" value="Analog Board" name="Name" class="form-control " placeholder="Analog Board"> </div>
+          <div class="col-12 col-md-6 fv-plugins-icon-container"> <label class="form-label" for="Reciever">Recieved By</label> <input type="text" id="Reciever" value="Eisa" name="Reciever" class="form-control" placeholder="Recieved By"> </div>
+          <div class="col-12 col-md-6  "> <label class="form-label" for="From">From</label> <input type="text" id="From" value="Nariyah" name="From" class="form-control " placeholder="Part Number"> </div>
+          <div class="col-12 col-md-6"> <label class="form-label" for="DeliveryMethod">Delivery Method</label> <select id="DeliveryMethod" name="DeliveryMethod" class="form-select" aria-label="Default select example">
+            <option value=""></option>
+            <option value="Internal Driver">Internal Driver</option>
+            <option selected value="DHL">DHL</option>
+            <option value="SPL">SPL</option>
+            <option value="Other">Other</option>
+           </select> </div>
+          <div class="col-12 col-md-6"> <label class="form-label" for="Status">Status</label> <select id="Status" name="Status" class="form-select" aria-label="Default select example">
+            <option value=""></option>
+            <option selected value="In Warehouse">In Warehouse</option>
+            <option value="Installed">Installed</option>
+            <option value="Sent">Sent</option>
+            <option value="Returned">Returned</option>
+           </select> </div>
+          <div class="col-12 col-md-6"> <label class="form-label" for="modalEditDate">Recieving Date</label> <input type="date" id="modalEditDate" value="2022-12-01" name="modalEditDate" class="form-control dt-input dt-full-name"> </div>
+          <div class="col-12 col-md-6"> <label for="TypeaheadBasic" class="form-label">Rack</label> <input id="TypeaheadBasic" class="form-control typeahead" value="R04-A1" type="text" autocomplete="off" placeholder="Rack Number" /> </div>
+          <div class="col-12 mb-4  "> <label class="form-label" for="Name">Comments</label> <textarea id="autosize-demo" rows="3" class="form-control" spellcheck="false">Damaged need to resent next week</textarea> </div>
+          <div class="col-12 text-center"> <button type="submit" class="btn btn-primary me-sm-3 me-1 waves-effect waves-light">Add</button> <button type="reset" class="btn btn-label-secondary waves-effect" data-bs-dismiss="modal" aria-label="Close">Cancel</button> </div> <input type="hidden">
+         </form>
+        </div>
+       </div>
+      </div>
+     </div> <!-- Footer -->
+     <footer class="content-footer footer bg-footer-theme">
+      <div class="container-xxl"></div>
+     </footer> <!-- / Footer -->
+     <div class="content-backdrop fade"></div>
+    </div> <!-- Content wrapper -->
+   </div> <!-- / Layout page -->
+  </div> <!-- Overlay -->
+  <div class="layout-overlay layout-menu-toggle"></div> <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+  <div class="drag-target"></div>
+ </div> <!-- / Layout wrapper -->
+ <!-- Core JS -->
+ <!-- build:js assets/vendor/js/core.js -->
+ <script src="assets/vendor/libs/jquery/jquery.js"></script>
+ <script src="assets/vendor/libs/popper/popper.js"></script>
+ <script src="assets/vendor/js/bootstrap.js"></script>
+ <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+ <script src="assets/vendor/libs/node-waves/node-waves.js"></script>
+ <script src="assets/vendor/libs/bs-stepper/bs-stepper.js"></script>
+ <script src="assets/vendor/libs/hammer/hammer.js"></script>
+ <script src="assets/vendor/libs/select2/select2.js"></script>
+ <script src="assets/vendor/libs/i18n/i18n.js"></script>
+ <script src="assets/vendor/libs/typeahead-js/typeahead.js"></script>
+ <script src="assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js"></script>
+ <script src="assets/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
+ <script src="assets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script>
+ <script src="assets/vendor/libs/bs-stepper/bs-stepper.js"></script>
+ <script src="assets/js/forms-typeahead.js"></script>
+ <script src="assets/vendor/libs/autosize/autosize.js"></script>
+ <script src="assets/js/main.js"></script>
+ <script src="assets/js/forms-extras.js"></script> <!-- Page JS -->
+</body>
+
+</html>
