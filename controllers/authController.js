@@ -6,7 +6,7 @@ const employeesCol = collection(db, "employees");
 exports.login = async (req, res, next) => {
   const sarid = req.body.sarid;
 
-  const docRef = doc(db, "team", sarid);
+  const docRef = doc(db, "employees", sarid);
   const docSnap = await getDoc(docRef);
 
   if (!docSnap.exists())
