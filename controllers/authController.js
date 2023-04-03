@@ -75,17 +75,3 @@ exports.restrictTo =
 
     next();
   };
-
-exports.returnDBKey = (req, res) => {
-  try {
-    res.status(200).json({
-      status: "success",
-      data: process.env.FIREBASE_API_KEY,
-    });
-  } catch (e) {
-    res.status(500).json({
-      status: "error",
-      message: "Error in returning API Key",
-    });
-  }
-};

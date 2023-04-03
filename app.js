@@ -26,7 +26,6 @@ app.use("/api/team", employeesRouter);
 app.use("/api/cars", carRouter);
 app.use("/api/warehouse", warehouseRouter);
 app.use("/api/workflow", workflowRouter);
-app.get("/api/return/dbkey", authController.returnDBKey);
 app.use("/", viewRouter);
 
 app.get("/index", (req, res) => {
