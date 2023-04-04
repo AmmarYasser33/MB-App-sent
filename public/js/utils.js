@@ -31,4 +31,22 @@ function isValidTime(time) {
   else return false;
 }
 
-export { showAlert, hideAlert, getCookie, isValidTime };
+/*
+let timeoutId;
+function debounce(func, delay) {
+  clearTimeout(timeoutId);
+  timeoutId = setTimeout(func, delay);
+}
+*/
+
+function debounce(fn, delay) {
+  let timerId;
+  return function (...args) {
+    clearTimeout(timerId);
+    timerId = setTimeout(() => {
+      fn.apply(this, args);
+    }, delay);
+  };
+}
+
+export { showAlert, hideAlert, getCookie, isValidTime, debounce };

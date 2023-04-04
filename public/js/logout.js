@@ -20,6 +20,7 @@ async function logoutUser() {
   }
 }
 
-axios.get("/api/team").then((res) => {
-  teamMembers.textContent = `${res.data.results} Team Members in Your Team`;
-});
+if (teamMembers)
+  axios.get("/api/team").then((res) => {
+    teamMembers.textContent = `${res.data.results} Team Members in Your Team`;
+  });

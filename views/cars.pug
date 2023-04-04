@@ -198,18 +198,18 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                           .row.g-3
                             .col-12.col-sm-6.col-lg-4
                               label.form-label Manufacturer:
-                              select.form-control.dt-input(placeholder="Choose Manufacturer")
-                                option(value="")
+                              select#manufacturerFilter.form-control.dt-input(placeholder="Choose Manufacturer")
+                                option(value="") All
                                 option(value="Toyota") Toyota
                                 option(value="Isuzu") Isuzu
                                 option(value="Nissan") Nissan
                             .col-12.col-sm-6.col-lg-4
                               label.form-label Plate Number:
-                              input.form-control.dt-input(type="number", data-column="2", placeholder="0001", data-column-index="1")
+                              input#plateNumberFilter.form-control.dt-input(type="number", data-column="2", placeholder="0001", data-column-index="1")
                             .col-12.col-sm-6.col-lg-4
                               label.form-label Status:
-                              select.form-control.dt-input(placeholder="Choose Status")
-                                option(value="")
+                              select#statusFilter.form-control.dt-input(placeholder="Choose Status")
+                                option(value="") All
                                 option(value="Clear") Clear
                                 option(value="Spare Tire") Spare Tire
                                 option(value="Need Maintenance") Need Maintenance
@@ -229,7 +229,7 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                           th Action
 
                       for car in data
-                        tr.odd
+                        tr.odd.car-row
                           td= car.manufacturer
                           td= car.model
                           td= car.year
@@ -403,4 +403,5 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
       script(src="/assets/vendor/js/core.js")
       script( src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.2/axios.min.js')
       script(type='module' src="/js/cars.js")
+      script(type='module' src="/js/carsFilter.js")
       script(type='module' src="/js/logout.js")
