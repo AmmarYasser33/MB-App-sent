@@ -15,5 +15,6 @@ router
   .patch(employeesController.updateEmployee);
 
 router.route("/login").post(authController.login);
+router.route("/auth/logout").get(authController.logout);
 
 module.exports = router;
