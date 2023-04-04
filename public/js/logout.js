@@ -19,3 +19,7 @@ async function logoutUser() {
     showAlert("error", "Error logging out! Try again.");
   }
 }
+
+axios.get("/api/team").then((res) => {
+  teamMembers.textContent = `${res.data.results} Team Members in Your Team`;
+});
