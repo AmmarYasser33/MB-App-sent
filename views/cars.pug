@@ -247,7 +247,9 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                             else if car.status == "Outdated" || car.status == "outdated"
                               span.badge.bg-label-secondary Outdated
                           td
-                            a.btn.btn-sm.btn-icon.item-edit(data-bs-toggle="modal", data-bs-target="#editrecord")
+                            //- a.btn.btn-sm.btn-icon.item-edit(data-bs-toggle="modal", data-bs-target="#editrecord")
+                            //-   i.text-primary.ti.ti-pencil
+                            a#showEditModelBtn.btn.btn-sm.btn-icon.item-edit(data-bs-toggle="modal", data-bs-target="#editrecord", data-carId=`${car.platenumber}${car.plateletter}`)
                               i.text-primary.ti.ti-pencil
 
                       tfoot
@@ -321,7 +323,7 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                           label.form-label(for="Name") Remarks
                           textarea#autosize-demo.editComment.form-control(rows="3", spellcheck="false") need washing
                         .col-12.text-center
-                          button.btn.btn-primary.me-sm-3.me-1.waves-effect.waves-light(type="submit") Add
+                          button#btnSave.btn.btn-primary.me-sm-3.me-1.waves-effect.waves-light(type="submit") Save
                           button.btn.btn-label-secondary.waves-effect(type="reset", data-bs-dismiss="modal", aria-label="Close") Cancel
                         input(type="hidden")
               #addrecord.modal.fade(tabindex="-1", aria-hidden="true")
