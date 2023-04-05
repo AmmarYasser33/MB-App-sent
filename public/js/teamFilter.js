@@ -11,72 +11,34 @@ const ptsFilter = document.getElementById("ptsFilter");
 const poFilter = document.getElementById("poFilter");
 const phoneFilter = document.getElementById("phoneFilter");
 
-// FILTER FUNCTIONS
-function filterByName(rows, filterValue) {
+// function to filter rows based on all filters
+function filterRows(rows) {
   rows.forEach(function (row) {
     const name = row.querySelector("td:nth-child(2)").textContent.toLowerCase();
+    const sarId = row
+      .querySelector("td:nth-child(1)")
+      .textContent.toLowerCase();
+    const role = row
+      .querySelector("td:nth-child(7)")
+      .textContent.toLowerCase()
+      .replace(/-/g, " ");
+    const pts = row.querySelector("td:nth-child(8)").textContent.toLowerCase();
+    const po = row
+      .querySelector("td:nth-child(9)")
+      .textContent.toLowerCase()
+      .replace(/-/g, " ");
+    const phone = row
+      .querySelector("td:nth-child(4)")
+      .textContent.toLowerCase();
 
-    if (name.includes(filterValue)) {
-      row.style.display = "";
-    } else {
-      row.style.display = "none";
-    }
-  });
-}
-
-function filterBySarId(rows, filterValue) {
-  rows.forEach(function (row) {
-    const name = row.querySelector("td:nth-child(1)").textContent.toLowerCase();
-
-    if (name.includes(filterValue)) {
-      row.style.display = "";
-    } else {
-      row.style.display = "none";
-    }
-  });
-}
-
-function filterByRole(rows, filterValue) {
-  rows.forEach(function (row) {
-    const name = row.querySelector("td:nth-child(7)").textContent.toLowerCase();
-
-    if (name.includes(filterValue)) {
-      row.style.display = "";
-    } else {
-      row.style.display = "none";
-    }
-  });
-}
-
-function filterByPts(rows, filterValue) {
-  rows.forEach(function (row) {
-    const name = row.querySelector("td:nth-child(8)").textContent.toLowerCase();
-
-    if (name.includes(filterValue)) {
-      row.style.display = "";
-    } else {
-      row.style.display = "none";
-    }
-  });
-}
-
-function filterByPo(rows, filterValue) {
-  rows.forEach(function (row) {
-    const name = row.querySelector("td:nth-child(9)").textContent.toLowerCase();
-
-    if (name.includes(filterValue)) {
-      row.style.display = "";
-    } else {
-      row.style.display = "none";
-    }
-  });
-}
-
-function filterByPhone(rows, filterValue) {
-  rows.forEach(function (row) {
-    const name = row.querySelector("td:nth-child(4)").textContent.toLowerCase();
-
-    if (name.includes(filterValue)) {
+    if (
+      name.includes(nameFilter.value.toLowerCase()) &&
+      sarId.includes(sarIdFilter.value.toLowerCase()) &&
+      role.includes(roleFilter.value.toLowerCase().replace(/-/g, " ")) &&
+      pts.includes(ptsFilter.value.toLowerCase()) &&
+      po.includes(poFilter.value.toLowerCase().replace(/-/g, " ")) &&
+      phone.includes(phoneFilter.value.toLowerCase())
+    ) {
       row.style.display = "";
     } else {
       row.style.display = "none";
@@ -90,7 +52,7 @@ nameFilter.addEventListener(
   debounce(function (event) {
     const filterValue = event.target.value.toLowerCase();
     const rows = document.querySelectorAll(".user-row");
-    filterByName(rows, filterValue);
+    filterRows(rows);
   }, DEBOUNCE_DELAY)
 );
 
@@ -99,7 +61,7 @@ sarIdFilter.addEventListener(
   debounce(function (event) {
     const filterValue = event.target.value.toLowerCase();
     const rows = document.querySelectorAll(".user-row");
-    filterBySarId(rows, filterValue);
+    filterRows(rows);
   }, DEBOUNCE_DELAY)
 );
 
@@ -108,7 +70,7 @@ roleFilter.addEventListener(
   debounce(function (event) {
     const filterValue = event.target.value.toLowerCase().replace(/-/g, " ");
     const rows = document.querySelectorAll(".user-row");
-    filterByRole(rows, filterValue);
+    filterRows(rows);
   }, DEBOUNCE_DELAY)
 );
 
@@ -117,7 +79,7 @@ ptsFilter.addEventListener(
   debounce(function (event) {
     const filterValue = event.target.value.toLowerCase();
     const rows = document.querySelectorAll(".user-row");
-    filterByPts(rows, filterValue);
+    filterRows(rows);
   }, DEBOUNCE_DELAY)
 );
 
@@ -126,7 +88,7 @@ poFilter.addEventListener(
   debounce(function (event) {
     const filterValue = event.target.value.toLowerCase().replace(/-/g, " ");
     const rows = document.querySelectorAll(".user-row");
-    filterByPo(rows, filterValue);
+    filterRows(rows);
   }, DEBOUNCE_DELAY)
 );
 
@@ -135,6 +97,6 @@ phoneFilter.addEventListener(
   debounce(function (event) {
     const filterValue = event.target.value.toLowerCase();
     const rows = document.querySelectorAll(".user-row");
-    filterByPhone(rows, filterValue);
+    filterRows(rows);
   }, DEBOUNCE_DELAY)
 );

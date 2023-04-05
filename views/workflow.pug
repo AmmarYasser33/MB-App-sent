@@ -152,14 +152,14 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                         .row.g-3
                           .col-12.col-sm-6.col-lg-4
                             label.form-label Date:
-                            input.form-control.dt-input.dt-full-name(type="date", data-column="1", placeholder="Date", data-column-index="0")
+                            input#dateFilter.form-control.dt-input.dt-full-name(type="date", data-column="1", placeholder="Date", data-column-index="0")
                           .col-12.col-sm-6.col-lg-4
                             label.form-label Work Order:
-                            input.form-control.dt-input(type="number", data-column="2", placeholder="0001", data-column-index="1")
+                            input#workOrderFilter.form-control.dt-input(type="number", data-column="2", placeholder="0001", data-column-index="1")
                           .col-12.col-sm-6.col-lg-4
                             label.form-label Site:
-                            select.form-control.dt-input(placeholder="Choose Site")
-                              option(value="")
+                            select#siteFilter.form-control.dt-input(placeholder="Choose Site")
+                              option(value="") All
                               option(value="41") 41
                               option(value="42") 42
                               option(value="43") 43
@@ -169,21 +169,21 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                               option(value="49") 49
                           .col-12.col-sm-6.col-lg-4
                             label.form-label Type:
-                            select.form-control.dt-input(placeholder="Choose Status")
-                              option(value="")
+                            select#typeFilter.form-control.dt-input(placeholder="Choose Status")
+                              option(value="") All
                               option(value="PM") PM
                               option(value="CM") CM
                               option(value="Inspection") Inspection
                           .col-12.col-sm-6.col-lg-4
                             label.form-label(for="select2Multiple") Team:
-                            select#select2Multiple.select2.form-select(multiple="", data-select2-id="select2Multiple")
+                            select#select2Multiple.teamMembersFilter.select2.form-select(multiple="", data-select2-id="select2Multiple")
                               for employee in employeesList
                                 option(value=employee.name)= employee.name
 
                           .col-12.col-sm-6.col-lg-4
                             label.form-label Status:
-                            select.form-control.dt-input(placeholder="Choose Status")
-                              option(value="")
+                            select#statusFilter.form-control.dt-input(placeholder="Choose Status")
+                              option(value="") All
                               option(value="open") Open
                               option(value="under-observation") Under Observation
                               option(value="spare-part") Spare Part
@@ -204,7 +204,7 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                         th Action
 
                     for workflow in data
-                      tr.odd
+                      tr.odd.workflow-row
                         td= workflow.date
                         td= workflow.workorder
                         td= workflow.site
@@ -442,3 +442,4 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
     script( src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.2/axios.min.js')
     script(type='module' src="/js/workflow.js")
     script(type='module' src="/js/logout.js")
+    script(type='module' src="/js/workflowFilter.js")
