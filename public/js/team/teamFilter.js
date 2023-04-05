@@ -1,4 +1,4 @@
-import { debounce } from "./utils.js";
+import { debounce } from "../utils.js";
 
 // CONSTANTS
 const DEBOUNCE_DELAY = 200;
