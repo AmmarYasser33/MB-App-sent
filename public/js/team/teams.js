@@ -108,6 +108,12 @@ showEditFormBtns.forEach((btn) => {
         editForm.innerHTML = html;
 
         addEvent();
+      })
+      .catch((err) => {
+        showAlert("error", `Error: ${err.message ? err.message : err}`);
+        setTimeout(() => {
+          location.reload();
+        }, 200);
       });
   });
 });
