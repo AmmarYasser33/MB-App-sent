@@ -8,6 +8,9 @@ router
   .get(warehouseController.getAllWarehouses)
   .post(warehouseController.createWarehouse);
 
-router.route("/:warehouseId").get(warehouseController.getWarehouse);
+router
+  .route("/:serialnumber")
+  .get(warehouseController.getWarehouseBySerialNumber)
+  .patch(warehouseController.updateWarehouseBySerialNumber);
 
 module.exports = router;

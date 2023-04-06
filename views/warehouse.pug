@@ -200,8 +200,10 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                           else if warehouse.status === 'Returned'
                             span.badge.bg-label-danger Returned
                         td
-                          a.btn.btn-sm.btn-icon.item-edit(data-bs-toggle="modal", data-bs-target="#editrecord")
+                          a#showEditModelBtn.btn.btn-sm.btn-icon.item-edit(data-bs-toggle="modal", data-bs-target="#editrecord", data-warehouseSerial=`${warehouse.serialnumber}`)
                             i.text-primary.ti.ti-pencil
+                          //- a.btn.btn-sm.btn-icon.item-edit(data-bs-toggle="modal", data-bs-target="#editrecord")
+                          //-   i.text-primary.ti.ti-pencil
 
                     tfoot
                       tr
@@ -284,22 +286,25 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                     form#edititemForm.row.g-3.fv-plugins-bootstrap5.fv-plugins-framework(onsubmit="return false", novalidate="novalidate", data-select2-id="additemForm")
                       .col-12.col-md-6
                         label.form-label(for="addSerialNumber") Serial Number
-                        input#addSerialNumber.form-control(type="text", value="JI153859208", name="SerialNumber", placeholder="Serial Number")
+                        input#editSerialNumber.form-control(type="text", value="JI153859208", name="SerialNumber", placeholder="Serial Number", disabled)
                       .col-12.col-md-6
                         label.form-label(for="addPartNumber") Part Number
-                        input#addPartNumber.form-control(type="text", value="3CR01836AEAB", name="PartNumber", placeholder="Part Number")
+                        input#editPartNumber.form-control(type="text", value="3CR01836AEAB", name="PartNumber", placeholder="Part Number")
+                      .col-12.col-md-6(style="display: none")
+                        label.form-label(for="") ID
+                        input#editWarehouseId.form-control(type="text", value="random id")
                       .col-12
                         label.form-label(for="addName") Name
-                        input#addName.form-control(type="text", value="Analog Board", name="Name", placeholder="Analog Board")
+                        input#editName.form-control(type="text", value="Analog Board", name="Name", placeholder="Analog Board")
                       .col-12.col-md-6.fv-plugins-icon-container
                         label.form-label(for="addReciever") Recieved By
-                        input#addReciever.form-control(type="text", value="Eisa", name="Reciever", placeholder="Recieved By")
+                        input#editReciever.form-control(type="text", value="Eisa", name="Reciever", placeholder="Recieved By")
                       .col-12.col-md-6
                         label.form-label(for="addFrom") From
-                        input#addFrom.form-control(type="text", value="Nariyah", name="From", placeholder="Part Number")
+                        input#editFrom.form-control(type="text", value="Nariyah", name="From", placeholder="Part Number")
                       .col-12.col-md-6
                         label.form-label(for="addDeliveryMethod") Delivery Method
-                        select#addDeliveryMethod.form-select(name="DeliveryMethod", aria-label="Default select example")
+                        select#editDeliveryMethod.form-select(name="DeliveryMethod", aria-label="Default select example")
                           option(value="")
                           option(value="Internal Driver")
                             | Internal Driver
@@ -308,7 +313,7 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                           option(value="Other") Other
                       .col-12.col-md-6
                         label.form-label(for="addStatus") Status
-                        select#addStatus.form-select(name="Status", aria-label="Default select example")
+                        select#editStatus.form-select(name="Status", aria-label="Default select example")
                           option(value="")
                           option(selected, value="In Warehouse")
                             | In Warehouse
@@ -317,20 +322,20 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                           option(value="Returned") Returned
                       .col-12.col-md-6
                         label.form-label(for="addmodalEditDate") Recieving Date
-                        input#addmodalEditDate.form-control.dt-input.dt-full-name(type="date", value="2022-12-01", name="modalEditDate")
+                        input#editmodalEditDate.form-control.dt-input.dt-full-name(type="date", value="2022-12-01", name="modalEditDate")
                       .col-12.col-md-6
                         label.form-label(for="addTypeaheadBasic") Rack
-                        input#addTypeaheadBasic.form-control.typeahead(value="R04-A1", type="text", autocomplete="off", placeholder="Rack Number")
+                        input#editTypeaheadBasic.form-control.typeahead(value="R04-A1", type="text", autocomplete="off", placeholder="Rack Number")
                       .col-12.mb-4
                         label.form-label(for="Name") Comments
                         textarea#autosize-demo.form-control.editComment(rows="3", spellcheck="false")
                           | Damaged need to resent next week
-                    .col-12.text-center
-                      button.btn.btn-primary.me-sm-3.me-1.waves-effect.waves-light(type="submit")
-                        | Add
-                      button.btn.btn-label-secondary.waves-effect(type="reset", data-bs-dismiss="modal", aria-label="Close")
-                        | Cancel
-                    input(type="hidden")
+                      .col-12.text-center
+                        button#btnSave.btn.btn-primary.me-sm-3.me-1.waves-effect.waves-light(type="submit")
+                          | Save
+                        button.btn.btn-label-secondary.waves-effect(type="reset", data-bs-dismiss="modal", aria-label="Close")
+                          | Cancel
+                      input(type="hidden")
             // Footer
             footer.content-footer.footer.bg-footer-theme
               .container-xxl
@@ -346,6 +351,6 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
     // Core JS
     script(src="/assets/vendor/js/core.js")
     script( src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.2/axios.min.js')
-    script(type='module' src="/js/warehouse.js")
+    script(type='module' src="/js/warehouse/warehouse.js")
     script(type='module' src="/js/logout.js")
-    script(type='module' src="/js/warehouseFilter.js")
+    script(type='module' src="/js/warehouse/warehouseFilter.js")
