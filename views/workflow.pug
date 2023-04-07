@@ -177,6 +177,7 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                           .col-12.col-sm-6.col-lg-4
                             label.form-label(for="select2Multiple") Team:
                             select#select2Multiple.teamMembersFilter.select2.form-select(multiple="", data-select2-id="select2Multiple")
+                              option(value="") Any
                               for employee in employeesList
                                 option(value=employee.name)= employee.name
 
@@ -229,8 +230,10 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                           else if workflow.status.toLowerCase() == "closed"
                             span.badge.bg-label-success Closed
                         td
-                          a.btn.btn-sm.btn-icon.item-edit(data-bs-toggle="modal", data-bs-target="#editrecord")
+                          a#showEditModelBtn.btn.btn-sm.btn-icon.item-edit(data-bs-toggle="modal", data-bs-target="#editrecord", data-workorder=workflow.workorder)
                             i.text-primary.ti.ti-pencil
+                          //- a.btn.btn-sm.btn-icon.item-edit(data-bs-toggle="modal", data-bs-target="#editrecord")
+                          //-   i.text-primary.ti.ti-pencil
 
                     tfoot
                       tr
@@ -422,7 +425,7 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                           option(value="Yes") Yes
                           option(selected, value="No") No
                       .col-12.text-center
-                        button.btn.btn-primary.me-sm-3.me-1.waves-effect.waves-light(type="submit") Add
+                        button#btnSave.btn.btn-primary.me-sm-3.me-1.waves-effect.waves-light(type="submit") Save
                         button.btn.btn-label-secondary.waves-effect(type="reset", data-bs-dismiss="modal", aria-label="Close") Cancel
                       input(type="hidden")
             // Footer
@@ -440,6 +443,6 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
     // Core JS
     script(src="/assets/vendor/js/core.js")
     script( src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.2/axios.min.js')
-    script(type='module' src="/js/workflow.js")
+    script(type='module' src="/js/workflow/workflow.js")
     script(type='module' src="/js/logout.js")
-    script(type='module' src="/js/workflowFilter.js")
+    script(type='module' src="/js/workflow/workflowFilter.js")

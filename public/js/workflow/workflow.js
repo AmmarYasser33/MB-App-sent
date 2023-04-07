@@ -1,4 +1,4 @@
-import { showAlert, isValidTime } from "./utils.js";
+import { showAlert, isValidTime } from "../utils.js";
 
 const addWorkflowBtn = document.querySelector("#addWorkflowBtn");
 
@@ -81,4 +81,67 @@ addWorkflowBtn.addEventListener("click", (e) => {
     .catch((err) => {
       showAlert("error", `Error: ${err.message ? err.message : err}`);
     });
+});
+
+// *
+// * show edit form with user data
+// *
+
+const showEditFormBtns = document.querySelectorAll("#showEditModelBtn");
+
+showEditFormBtns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    const workflowId = e.target.parentElement.dataset.workorder;
+    let workflow = {};
+
+    fetch(`/api/workflow/${workflowId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        workflow = data.data;
+
+        fetch("/api/cars")
+          .then((res) => {
+            res.json();
+          })
+          .then((data) => {
+            const cars = data.data;
+
+            fetch("/api/team")
+              .then((res) => {
+                res.json();
+              })
+              .then((data) => {
+                const employees = data.data;
+
+                const editForm = document.querySelector("#editWorkflowForm");
+                const html = customEditForm(
+                  workflow.date,
+                  employees,
+                  workflow.team,
+                  workflow.workorder,
+                  workflow.site,
+                  workflow.type,
+                  workflow.status,
+                  workflow.timein,
+                  workflow.timeout,
+                  workflow.description,
+                  cars,
+                  workflow.car,
+                  workflow.responsibleteam,
+                  workflow.level2
+                );
+
+                editForm.innerHTML = html;
+
+                addEvent();
+              });
+          });
+      })
+      .catch((err) => {
+        showAlert("error", `Error: ${err.message ? err.message : err}`);
+        setTimeout(() => {
+          location.reload();
+        }, 200);
+      });
+  });
 });
