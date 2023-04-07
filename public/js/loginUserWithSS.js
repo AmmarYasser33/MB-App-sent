@@ -8,7 +8,9 @@ import {
 const authForm = document.querySelector("#formAuthentication");
 const sendBtn = document.getElementById("sign-in-button");
 const verifyBtn = document.getElementById("verify-btn");
-document.getElementById("authentication-wrapper-basic").style.display = "none";
+const resendBtn = document.getElementById("resendBtn");
+// document.getElementById("authentication-wrapper-basic").style.display = "none";
+let user_obj;
 
 if (!window.recaptchaVerifier) {
   window.recaptchaVerifier = new RecaptchaVerifier(
@@ -41,6 +43,7 @@ function signup(e) {
     .post("/api/team/login", { sarid })
     .then((res) => {
       if (res.data.status === "success") {
+        user_obj = res.data.data;
         sendSMS(res.data.data);
       } else {
         showAlert("error", "Invalid SAR ID");
@@ -66,6 +69,7 @@ function sendSMS(user) {
       window.confirmationResult = confirmationResult;
 
       showAlert("success", "SMS sent successfully");
+
       document.getElementById("showUserPhone").textContent = `${"*".repeat(
         user.phone.length - 4
       )}${user.phone.slice(-4)}`;
@@ -91,6 +95,16 @@ function verify(e) {
     return;
   }
 
+  if (!window.confirmationResult) {
+    showAlert("error", "Please re-verfiy captcha");
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+
+    return;
+  }
+
   confirmationResult
     .confirm(code)
     .then((result) => {
@@ -103,6 +117,12 @@ function verify(e) {
       showAlert("error", "Bad verification code");
     });
 }
+
+resendBtn.addEventListener("click", () => {
+  sendSMS(user_obj);
+
+  showAlert("success", "SMS resent successfully");
+});
 
 function getCodeFromOTPInput() {
   const dig1 = document.getElementById("digit-1").value;
