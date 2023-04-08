@@ -6,6 +6,7 @@ const {
   setDoc,
   getDoc,
   updateDoc,
+  deleteDoc,
 } = require("firebase/firestore");
 
 const { db } = require("../firebaseDB");
@@ -142,6 +143,31 @@ exports.updateWorkflow = async (req, res) => {
     return res.status(200).json({
       status: "success",
       data: "Workflow updated successfully",
+    });
+  } catch (e) {
+    res.status(500).json({
+      status: "error",
+      message: "Internal Server Error! Try again later",
+    });
+  }
+};
+
+exports.deleteWorkflow = async (req, res) => {
+  try {
+    const docRef = doc(db, "workflow", req.params.workOrder);
+    const docSnap = await getDoc(docRef);
+
+    if (!docSnap.exists())
+      return res.status(404).json({
+        status: "error",
+        message: "Workflow not found",
+      });
+
+    await deleteDoc(docRef);
+
+    return res.status(200).json({
+      status: "success",
+      data: "Workflow deleted successfully",
     });
   } catch (e) {
     res.status(500).json({

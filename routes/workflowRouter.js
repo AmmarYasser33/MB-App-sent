@@ -11,6 +11,7 @@ router
 router
   .route("/:workOrder")
   .get(workflowController.getWorkflowByWorkOrder)
-  .patch(workflowController.updateWorkflow);
+  .patch(workflowController.updateWorkflow)
+  .delete(workflowController.deleteWorkflow);
 
 module.exports = router;

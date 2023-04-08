@@ -229,11 +229,11 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                             span.badge.bg-label-primary Spare Part
                           else if workflow.status.toLowerCase() == "closed"
                             span.badge.bg-label-success Closed
-                        td
+                        td(style="width: 100px;")
                           a#showEditModelBtn.btn.btn-sm.btn-icon.item-edit(data-bs-toggle="modal", data-bs-target="#editrecord", data-workorder=workflow.workorder)
                             i.text-primary.ti.ti-pencil
-                          //- a.btn.btn-sm.btn-icon.item-edit(data-bs-toggle="modal", data-bs-target="#editrecord")
-                          //-   i.text-primary.ti.ti-pencil
+                          a#deleteWorkflow.btn.btn-sm.btn-icon.item-edit(data-workorder=workflow.workorder)
+                            i.text-danger.ti.ti-trash
 
                     tfoot
                       tr
@@ -446,3 +446,4 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
     script(type='module' src="/js/workflow/workflow.js")
     script(type='module' src="/js/logout.js")
     script(type='module' src="/js/workflow/workflowFilter.js")
+    script(type='module' src="/js/workflow/deleteWorkflow.js")
