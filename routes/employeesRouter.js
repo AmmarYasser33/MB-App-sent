@@ -12,7 +12,8 @@ router
 router
   .route("/:sarid")
   .get(employeesController.getEmployee)
-  .patch(employeesController.updateEmployee);
+  .patch(employeesController.updateEmployee)
+  .delete(employeesController.deleteEmployee);
 
 router.route("/login").post(authController.login);
 router.route("/auth/logout").get(authController.logout);

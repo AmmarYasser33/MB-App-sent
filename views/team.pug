@@ -270,11 +270,11 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                               span.badge.bg-label-danger= user.po
                             else if user.po == "Not PO"
                               span.badge.bg-label-warning= user.po
-                          td                            
+                          td                          
                             a#showEditModelBtn.btn.btn-sm.btn-icon.item-edit(data-bs-toggle="modal", data-bs-target="#editrecord", data-userId=`${user.sarid}`)
                               i.text-primary.ti.ti-pencil
-                            //- a#showEditModelBtn.btn.btn-sm.btn-icon.item-edit()
-                              i.text-primary.ti.ti-pencil
+                            a#deleteEmployee.btn.btn-sm.btn-icon.item-delete(data-userId=`${user.sarid}`)
+                              i.text-danger.ti.ti-trash
                         
                       tfoot
                         tr
@@ -485,3 +485,4 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
     script(type='module' src="/js/team/teams.js")
     script(type='module' src="/js/logout.js")
     script(type='module' src="/js/team/teamFilter.js")
+    script(type='module' src="/js/team/deleteEmployee.js")
