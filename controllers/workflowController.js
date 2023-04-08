@@ -5,6 +5,7 @@ const {
   addDoc,
   setDoc,
   getDoc,
+  updateDoc,
 } = require("firebase/firestore");
 
 const { db } = require("../firebaseDB");

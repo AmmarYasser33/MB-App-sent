@@ -33,7 +33,7 @@ function customEditForm(
   </div>
   <div class="col-12 col-md-6">
     <label class="form-label" for="Workflowworkorder">Work Order</label>
-    <input class="form-control" id="Workflowworkorder" type="text" value="${workorder}" name="Workflowworkorder" placeholder="Work Order"/>
+    <input class="form-control" id="Workflowworkorder" type="text" value="${workorder}" name="Workflowworkorder" placeholder="Work Order" disabled />
   </div>
   <div class="col-12 col-md-6">
     <label class="form-label" for="WorkflowSite">Site</label>
