@@ -118,10 +118,41 @@ function verify(e) {
     });
 }
 
-resendBtn.addEventListener("click", () => {
-  sendSMS(user_obj);
+resendBtn.addEventListener("click", async () => {
+  // sendSMS(user_obj);
+  // showAlert("success", "SMS resent successfully");
 
-  showAlert("success", "SMS resent successfully");
+  if (!user_obj) {
+    showAlert("error", "Invalid SAR ID");
+    setTimeout(() => {
+      window.location.reload();
+    }, 800);
+    return;
+  }
+
+  if (!window.recaptchaVerifier) {
+    showAlert("error", "Please re-verfiy captcha");
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+
+    return;
+  }
+
+  const phoneNumber = `+${user_obj.phone}`;
+  const appVerifier = window.recaptchaVerifier;
+
+  signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+    .then((newConfirmationResult) => {
+      // Replace the previous confirmationResult with the new one
+      window.confirmationResult = newConfirmationResult;
+
+      showAlert("success", "SMS Resent");
+    })
+    .catch((error) => {
+      showAlert("error", "SMS not resent! " + error.message);
+    });
 });
 
 function getCodeFromOTPInput() {
