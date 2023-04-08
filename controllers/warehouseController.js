@@ -4,8 +4,9 @@ const {
   getDocs,
   addDoc,
   setDoc,
-  updateDoc,
   getDoc,
+  updateDoc,
+  deleteDoc,
 } = require("firebase/firestore");
 
 const { db } = require("../firebaseDB");
@@ -177,6 +178,32 @@ exports.updateWarehouseBySerialNumber = async (req, res) => {
       status: "success",
       message: "warehouse updated successfully",
     });
+  } catch (e) {
+    res.status(500).json({
+      status: "error",
+      message: "Internal Server Error! Try again later",
+    });
+  }
+};
+
+exports.deleteWarehouse = async (req, res) => {
+  try {
+    const docRef = doc(db, "warehouse", req.params.serialnumber);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      await deleteDoc(docRef);
+
+      return res.status(200).json({
+        status: "success",
+        message: "Warehouse deleted successfully",
+      });
+    } else {
+      return res.status(404).json({
+        status: "error",
+        message: "Warehouse not found",
+      });
+    }
   } catch (e) {
     res.status(500).json({
       status: "error",

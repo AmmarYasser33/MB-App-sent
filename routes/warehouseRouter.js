@@ -11,6 +11,7 @@ router
 router
   .route("/:serialnumber")
   .get(warehouseController.getWarehouseBySerialNumber)
-  .patch(warehouseController.updateWarehouseBySerialNumber);
+  .patch(warehouseController.updateWarehouseBySerialNumber)
+  .delete(warehouseController.deleteWarehouse);
 
 module.exports = router;
