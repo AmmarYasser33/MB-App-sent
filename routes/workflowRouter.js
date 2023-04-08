@@ -8,6 +8,9 @@ router
   .get(workflowController.getAllWorkflows)
   .post(workflowController.createWorkflow);
 
-router.route("/:warehouseId").get(workflowController.getWorkflow);
+router
+  .route("/:workOrder")
+  .get(workflowController.getWorkflowByWorkOrder)
+  .patch(workflowController.updateWorkflow);
 
 module.exports = router;
