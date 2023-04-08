@@ -176,7 +176,7 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                               option(value="Inspection") Inspection
                           .col-12.col-sm-6.col-lg-4
                             label.form-label(for="select2Multiple") Team:
-                            select#select2Multiple.teamMembersFilter.select2.form-select(multiple="", data-select2-id="select2Multiple")
+                            select#select2MultipleFilter.teamMembersFilter.select2.form-select(multiple="", data-select2-id="select2Multiple")
                               option(value="") Any
                               for employee in employeesList
                                 option(value=employee.name)= employee.name
@@ -348,7 +348,7 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                         input#Date.form-control.dt-input.dt-full-name(type="date", value="2022-12-01", name="Date")
                       .col-12.col-md-6
                         label.form-label(for="WorkflowTeams") Team
-                        select#select2Multiple.select2.form-select(multiple="", data-select2-id="editteam")
+                        select#editselect2Multiple.select2.form-select(multiple="", data-select2-id="editteam")
                           optgroup(label="Team A")
                             option(value="0111", data-select2-id="211") Mohammed Ahmed
                             option(value="0112", data-select2-id="222") Salih Mosleh
@@ -395,10 +395,10 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                           option(selected, value="closed") Closed
                       .col-12.col-md-6
                         label.form-label(for="WorkflowTimein") Time in
-                        input.form-control(type="text", value="21:11", placeholder="00:00")
+                        input#WorkflowTimein.form-control(type="text", value="21:11", placeholder="00:00")
                       .col-12.col-md-6
                         label.form-label(for="WorkflowTimeout") Time Out
-                        input.form-control(type="text", value="23:44", placeholder="23:59")
+                        input#WorkflowTimeout.form-control(type="text", value="23:44", placeholder="23:59")
                       .col-12.col-md-6
                         label.form-label(for="WorkflowDescription") Description
                         input#WorkflowDescription.form-control(type="text", value="P03 Not reach end position", name="WorkflowDescription", placeholder="P01 Defect")

@@ -21,7 +21,7 @@ function customEditForm(
   </div>
   <div class="col-12 col-md-6">
     <label class="form-label" for="WorkflowTeams">Team</label>
-    <select class="select2 form-select" id="select2Multiple" multiple="" data-select2-id="editteam">
+    <select class="select2 form-select" id="editselect2Multiple" multiple="" data-select2-id="editteam">
       ${Employees.map((employee) => {
         return `
         <option value="${employee.name}" ${
@@ -106,11 +106,11 @@ function customEditForm(
   </div>
   <div class="col-12 col-md-6">
     <label class="form-label" for="WorkflowTimein">Time in</label>
-    <input class="form-control" type="text" value="${timein}" placeholder="00:00"/>
+    <input class="form-control" type="text" id="WorkflowTimein" value="${timein}" placeholder="00:00"/>
   </div>
   <div class="col-12 col-md-6">
     <label class="form-label" for="WorkflowTimeout">Time Out</label>
-    <input class="form-control" type="text" value="${timeout}" placeholder="23:59"/>
+    <input class="form-control" type="text" id="WorkflowTimeout" value="${timeout}" placeholder="23:59"/>
   </div>
   <div class="col-12 col-md-6">
     <label class="form-label" for="WorkflowDescription">Description</label>
@@ -124,10 +124,12 @@ function customEditForm(
         car === "closed" ? "selected='selected'" : ""
       } value="Parado 19">Parado 19</option>
       ${cars.map((c) => {
+        const cName = c.model + " " + c.year.slice(-2);
+
         return `
-        <option value="${c.name}" ${
-          c.name === car ? "selected='selected'" : ""
-        }>${c.name}</option>
+        <option value="${cName}" ${
+          cName === car ? "selected='selected'" : ""
+        }>${cName}</option>
         `;
       })}
     </select>
