@@ -6,6 +6,7 @@ const {
   setDoc,
   getDoc,
   updateDoc,
+  deleteDoc,
 } = require("firebase/firestore");
 
 const { db } = require("../firebaseDB");
@@ -106,6 +107,31 @@ exports.updateCar = async (req, res) => {
     return res.status(200).json({
       status: "success",
       data: "Car updated successfully",
+    });
+  } catch (e) {
+    res.status(500).json({
+      status: "error",
+      message: "Internal Server Error! Try again later",
+    });
+  }
+};
+
+exports.deleteCar = async (req, res) => {
+  try {
+    const docRef = doc(db, "cars", req.params.carId);
+    const docSnap = await getDoc(docRef);
+
+    if (!docSnap.exists())
+      return res.status(404).json({
+        status: "error",
+        message: "Car not found",
+      });
+
+    await deleteDoc(docRef);
+
+    return res.status(200).json({
+      status: "success",
+      data: "Car deleted successfully",
     });
   } catch (e) {
     res.status(500).json({

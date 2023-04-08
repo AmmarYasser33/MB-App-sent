@@ -247,10 +247,10 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                             else if car.status == "Outdated" || car.status == "outdated"
                               span.badge.bg-label-secondary Outdated
                           td
-                            //- a.btn.btn-sm.btn-icon.item-edit(data-bs-toggle="modal", data-bs-target="#editrecord")
-                            //-   i.text-primary.ti.ti-pencil
                             a#showEditModelBtn.btn.btn-sm.btn-icon.item-edit(data-bs-toggle="modal", data-bs-target="#editrecord", data-carId=`${car.platenumber}${car.plateletter}`)
                               i.text-primary.ti.ti-pencil
+                            a#deleteCar.btn.btn-sm.btn-icon.item-edit(data-carId=`${car.platenumber}${car.plateletter}`)
+                              i.text-danger.ti.ti-trash
 
                       tfoot
                         tr
@@ -406,4 +406,5 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
       script( src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.2/axios.min.js')
       script(type='module' src="/js/car/cars.js")
       script(type='module' src="/js/car/carsFilter.js")
+      script(type='module' src="/js/car/deleteCar.js")
       script(type='module' src="/js/logout.js")
