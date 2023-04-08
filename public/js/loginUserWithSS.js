@@ -9,8 +9,7 @@ const authForm = document.querySelector("#formAuthentication");
 const sendBtn = document.getElementById("sign-in-button");
 const verifyBtn = document.getElementById("verify-btn");
 const resendBtn = document.getElementById("resendBtn");
-// document.getElementById("authentication-wrapper-basic").style.display = "none";
-let user_obj;
+document.getElementById("authentication-wrapper-basic").style.display = "none";
 
 if (!window.recaptchaVerifier) {
   window.recaptchaVerifier = new RecaptchaVerifier(
@@ -43,7 +42,6 @@ function signup(e) {
     .post("/api/team/login", { sarid })
     .then((res) => {
       if (res.data.status === "success") {
-        user_obj = res.data.data;
         sendSMS(res.data.data);
       } else {
         showAlert("error", "Invalid SAR ID");
@@ -118,41 +116,12 @@ function verify(e) {
     });
 }
 
-resendBtn.addEventListener("click", async () => {
-  // sendSMS(user_obj);
-  // showAlert("success", "SMS resent successfully");
+resendBtn.addEventListener("click", () => {
+  axios.get("/api/team/auth/logout");
 
-  if (!user_obj) {
-    showAlert("error", "Invalid SAR ID");
-    setTimeout(() => {
-      window.location.reload();
-    }, 800);
-    return;
-  }
-
-  if (!window.recaptchaVerifier) {
-    showAlert("error", "Please re-verfiy captcha");
-
-    setTimeout(() => {
-      window.location.reload();
-    }, 1000);
-
-    return;
-  }
-
-  const phoneNumber = `+${user_obj.phone}`;
-  const appVerifier = window.recaptchaVerifier;
-
-  signInWithPhoneNumber(auth, phoneNumber, appVerifier)
-    .then((newConfirmationResult) => {
-      // Replace the previous confirmationResult with the new one
-      window.confirmationResult = newConfirmationResult;
-
-      showAlert("success", "SMS Resent");
-    })
-    .catch((error) => {
-      showAlert("error", "SMS not resent! " + error.message);
-    });
+  setTimeout(() => {
+    window.location.reload();
+  }, 1100);
 });
 
 function getCodeFromOTPInput() {
