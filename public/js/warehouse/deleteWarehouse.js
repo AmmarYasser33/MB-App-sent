@@ -5,7 +5,7 @@ const deleteBtns = document.querySelectorAll("#deleteWarehouse");
 deleteBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
-    const serialNum = e.target.parentElement.dataset.warehouseserial;
+    const warehouseId = e.target.parentElement.dataset.warehouseid;
 
     const confirmDelete = confirm(
       "Are you sure you want to delete this Warehouse?"
@@ -13,7 +13,7 @@ deleteBtns.forEach((btn) => {
 
     if (confirmDelete) {
       axios
-        .delete(`/api/warehouse/${serialNum}`)
+        .delete(`/api/warehouse/${warehouseId}`)
         .then((res) => {
           if (res.data.status === "success") {
             showAlert("success", "Employee deleted successfully");

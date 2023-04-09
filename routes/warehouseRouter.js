@@ -9,9 +9,17 @@ router
   .post(warehouseController.createWarehouse);
 
 router
+  .route("/:warehouseId")
+  .get(warehouseController.getWarehouse)
+  .patch(warehouseController.updateWarehouseById)
+  .delete(warehouseController.deleteWarehouseById);
+
+/*
+router
   .route("/:serialnumber")
   .get(warehouseController.getWarehouseBySerialNumber)
   .patch(warehouseController.updateWarehouseBySerialNumber)
   .delete(warehouseController.deleteWarehouse);
+  */
 
 module.exports = router;

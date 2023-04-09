@@ -57,13 +57,15 @@ addWarehouseBtn.addEventListener("click", (e) => {
 // *
 
 const showEditFormBtns = document.querySelectorAll("#showEditModelBtn");
+let generalId;
 
 showEditFormBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    const serialNum = e.target.parentElement.dataset.warehouseserial;
+    const warehouseId = e.target.parentElement.dataset.warehouseid;
+    generalId = warehouseId;
     let warehouse = {};
 
-    fetch(`/api/warehouse/${serialNum}`)
+    fetch(`/api/warehouse/${warehouseId}`)
       .then((res) => res.json())
       .then((data) => {
         warehouse = data.data;
