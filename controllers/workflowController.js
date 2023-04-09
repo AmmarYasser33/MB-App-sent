@@ -48,8 +48,7 @@ exports.getWorkflow = async (req, res) => {
   } catch (e) {
     res.status(500).json({
       status: "error",
-      // message: "Internal Server Error! Try again later",
-      message: e.message,
+      message: "Internal Server Error! Try again later",
     });
   }
 };
