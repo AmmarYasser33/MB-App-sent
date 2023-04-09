@@ -5,7 +5,7 @@ const deleteBtns = document.querySelectorAll("#deleteWorkflow");
 deleteBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
-    const workOrder = e.target.parentElement.dataset.workorder;
+    const workflowId = e.target.parentElement.dataset.workflowid;
 
     const confirmDelete = confirm(
       "Are you sure you want to delete this workflow?"
@@ -13,7 +13,7 @@ deleteBtns.forEach((btn) => {
 
     if (confirmDelete) {
       axios
-        .delete(`/api/workflow/${workOrder}`)
+        .delete(`/api/workflow/${workflowId}`)
         .then((res) => {
           if (res.data.status === "success") {
             showAlert("success", "Workflow deleted successfully");

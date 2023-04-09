@@ -9,9 +9,17 @@ router
   .post(workflowController.createWorkflow);
 
 router
+  .route("/:workflowId")
+  .get(workflowController.getWorkflow)
+  .patch(workflowController.updateWorkflowById)
+  .delete(workflowController.deleteWorkflowById);
+
+/*
+router
   .route("/:workOrder")
   .get(workflowController.getWorkflowByWorkOrder)
-  .patch(workflowController.updateWorkflow)
+  .patch(workflowController.updateWorkflowByWorkOrder)
   .delete(workflowController.deleteWorkflow);
+*/
 
 module.exports = router;

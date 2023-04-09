@@ -230,9 +230,9 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                           else if workflow.status.toLowerCase() == "closed"
                             span.badge.bg-label-success Closed
                         td(style="width: 100px;")
-                          a#showEditModelBtn.btn.btn-sm.btn-icon.item-edit(data-bs-toggle="modal", data-bs-target="#editrecord", data-workorder=workflow.workorder)
+                          a#showEditModelBtn.btn.btn-sm.btn-icon.item-edit(data-bs-toggle="modal", data-bs-target="#editrecord", data-workflowid=workflow.id)
                             i.text-primary.ti.ti-pencil
-                          a#deleteWorkflow.btn.btn-sm.btn-icon.item-edit(data-workorder=workflow.workorder)
+                          a#deleteWorkflow.btn.btn-sm.btn-icon.item-edit(data-workflowid=workflow.id)
                             i.text-danger.ti.ti-trash
 
                     tfoot

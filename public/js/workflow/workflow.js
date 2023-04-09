@@ -89,10 +89,12 @@ addWorkflowBtn.addEventListener("click", (e) => {
 // *
 
 const showEditFormBtns = document.querySelectorAll("#showEditModelBtn");
+let generalId;
 
 showEditFormBtns.forEach((btn) => {
   btn.addEventListener("click", (e) => {
-    const workflowId = e.target.parentElement.dataset.workorder;
+    const workflowId = e.target.parentElement.dataset.workflowid;
+    generalId = workflowId;
     let workflow = {};
 
     fetch(`/api/workflow/${workflowId}`)
@@ -210,7 +212,7 @@ function addEvent() {
     const newWorkflow = { date, workorder, timein, timeout, description, team, site, type, status, car, responsibleteam, level2 };
 
     axios
-      .patch(`/api/workflow/${workorder}`, newWorkflow)
+      .patch(`/api/workflow/${generalId}`, newWorkflow)
       .then((res) => {
         if (res.data.status === "success") {
           showAlert("success", "Workflow updated successfully");

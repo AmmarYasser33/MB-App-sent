@@ -32,7 +32,7 @@ exports.getAllWorkflows = async (req, res) => {
 
 exports.getWorkflow = async (req, res) => {
   try {
-    const docRef = doc(db, "workflow", req.params.warehouseId);
+    const docRef = doc(db, "workflow", req.params.workflowId);
     const docSnap = await getDoc(docRef);
 
     if (!docSnap.exists())
@@ -48,7 +48,8 @@ exports.getWorkflow = async (req, res) => {
   } catch (e) {
     res.status(500).json({
       status: "error",
-      message: "Internal Server Error! Try again later",
+      // message: "Internal Server Error! Try again later",
+      message: e.message,
     });
   }
 };
@@ -70,6 +71,7 @@ exports.createWorkflow = async (req, res) => {
 };
 */
 
+/*
 exports.createWorkflow = async (req, res) => {
   try {
     // check if there is a duplicate workorder
@@ -90,6 +92,42 @@ exports.createWorkflow = async (req, res) => {
       doc(db, "workflow", req.body.workorder),
       req.body
     );
+
+    return res.status(201).json({
+      status: "success",
+      message: "workflow created successfully",
+    });
+  } catch (e) {
+    res.status(500).json({
+      status: "error",
+      message: "Internal Server Error! Try again later",
+    });
+  }
+};
+*/
+
+// create workflow and set id as random string (length = 15)
+exports.createWorkflow = async (req, res) => {
+  try {
+    // check if there is a duplicate id
+    let duplicate = false;
+    const newId = generateId();
+
+    const workflowSnapshot = await getDocs(workflowCol);
+    workflowSnapshot.docs.map((doc) => {
+      if (doc.data().id === newId) duplicate = true;
+
+      return doc.data();
+    });
+
+    if (duplicate)
+      return res
+        .status(400)
+        .json({ status: "error", message: "Duplicate id! Try again." });
+
+    req.body.id = newId;
+
+    const newWorkflow = await setDoc(doc(db, "workflow", newId), req.body);
 
     return res.status(201).json({
       status: "success",
@@ -127,7 +165,7 @@ exports.getWorkflowByWorkOrder = async (req, res) => {
   }
 };
 
-exports.updateWorkflow = async (req, res) => {
+exports.updateWorkflowByWorkOrder = async (req, res) => {
   try {
     const docRef = doc(db, "workflow", req.params.workOrder);
     const docSnap = await getDoc(docRef);
@@ -176,3 +214,66 @@ exports.deleteWorkflow = async (req, res) => {
     });
   }
 };
+
+exports.updateWorkflowById = async (req, res) => {
+  try {
+    const docRef = doc(db, "workflow", req.params.workflowId);
+    const docSnap = await getDoc(docRef);
+
+    if (!docSnap.exists())
+      return res.status(404).json({
+        status: "error",
+        message: "Workflow not found",
+      });
+
+    await updateDoc(docRef, req.body);
+
+    return res.status(200).json({
+      status: "success",
+      data: "Workflow updated successfully",
+    });
+  } catch (e) {
+    res.status(500).json({
+      status: "error",
+      message: "Internal Server Error! Try again later",
+    });
+  }
+};
+
+exports.deleteWorkflowById = async (req, res) => {
+  try {
+    const docRef = doc(db, "workflow", req.params.workflowId);
+    const docSnap = await getDoc(docRef);
+
+    if (!docSnap.exists())
+      return res.status(404).json({
+        status: "error",
+        message: "Workflow not found",
+      });
+
+    await deleteDoc(docRef);
+
+    return res.status(200).json({
+      status: "success",
+      data: "Workflow deleted successfully",
+    });
+  } catch (e) {
+    res.status(500).json({
+      status: "error",
+      message: "Internal Server Error! Try again later",
+    });
+  }
+};
+
+// function to generate a random id (length = 18)
+function generateId() {
+  let id = "";
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  for (let i = 0; i < 18; i++) {
+    id += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+
+  return id;
+}
