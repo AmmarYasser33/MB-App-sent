@@ -41,8 +41,7 @@ if (addEmployeeForm)
 
     // prettier-ignore
     if (
-      !sarid || !nationalid || !name || !email || !phone || !nationality || !role ||
-      !pts || !ptsExpiringDate || !po || !poNumber || !poExpiringDate || !mb || !comment
+      !sarid || !nationalid || !name || !email || !phone || !nationality || !role  || !ptsExpiringDate  || !poNumber || !poExpiringDate || !mb || !comment
     ) {
       showAlert("error", "Please fill in all fields");
       return;
@@ -167,8 +166,7 @@ function addEvent() {
 
     // prettier-ignore
     if (
-       !nationalid || !name || !email || !phone || !nationality || !role ||
-      !pts || !ptsExpiringDate || !po || !poNumber || !poExpiringDate || !mb || !comment
+       !nationalid || !name || !email || !phone || !nationality || !role  || !ptsExpiringDate  || !poNumber || !poExpiringDate || !mb || !comment
     ) {
       showAlert("error", "Please fill in all fields");
       return;
