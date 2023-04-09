@@ -227,9 +227,20 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                                 option(value="active") Active
                                 option(value="not-po") Not PO
                                 option(value="expired") Expired
+
                             .col-12.col-sm-6.col-lg-4
-                              label.form-label Phone Number:
-                              input#phoneFilter.form-control.dt-input(type="text", data-column="6", placeholder="050000000", data-column-index="5")
+                              label.form-label MB:
+                              select#mbFilter.form-control.dt-input
+                                option(value="") All
+                                option(value="MB1") MB1
+                                option(value="MB2") MB2
+                                option(value="MB3") MB3
+                                option(value="MB4") MB4
+                                option(value="MB5") MB5
+                                option(value="MB6") MB6
+                                option(value="MB7") MB7
+                                option(value="MB8") MB8
+                                option(value="MB9") MB9
                   hr.mt-0
                   .card-datatable.table-responsive
                     table.dt-advanced-search.table
@@ -486,3 +497,4 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
     script(type='module' src="/js/logout.js")
     script(type='module' src="/js/team/teamFilter.js")
     script(type='module' src="/js/team/deleteEmployee.js")
+    script(type='module' src="/js/team/manageDates.js")
