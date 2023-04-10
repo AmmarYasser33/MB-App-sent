@@ -31,14 +31,6 @@ function isValidTime(time) {
   else return false;
 }
 
-/*
-let timeoutId;
-function debounce(func, delay) {
-  clearTimeout(timeoutId);
-  timeoutId = setTimeout(func, delay);
-}
-*/
-
 function debounce(fn, delay) {
   let timerId;
   return function (...args) {
