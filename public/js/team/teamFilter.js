@@ -9,7 +9,6 @@ const sarIdFilter = document.getElementById("sarIdFilter");
 const roleFilter = document.getElementById("roleFilter");
 const ptsFilter = document.getElementById("ptsFilter");
 const poFilter = document.getElementById("poFilter");
-// const phoneFilter = document.getElementById("phoneFilter");
 const mbFilter = document.getElementById("mbFilter");
 
 // function to filter rows based on all filters
@@ -37,7 +36,6 @@ function filterRows(rows) {
       role.includes(roleFilter.value.toLowerCase().replace(/-/g, " ")) &&
       pts.includes(ptsFilter.value.toLowerCase()) &&
       po.includes(poFilter.value.toLowerCase().replace(/-/g, " ")) &&
-      // phone.includes(phoneFilter.value.toLowerCase())
       mb.includes(mbFilter.value.toLowerCase())
     ) {
       row.style.display = "";
@@ -92,17 +90,6 @@ poFilter.addEventListener(
     filterRows(rows);
   }, DEBOUNCE_DELAY)
 );
-
-/*
-phoneFilter.addEventListener(
-  "input",
-  debounce(function (event) {
-    const filterValue = event.target.value.toLowerCase();
-    const rows = document.querySelectorAll(".user-row");
-    filterRows(rows);
-  }, DEBOUNCE_DELAY)
-);
-*/
 
 mbFilter.addEventListener(
   "input",
