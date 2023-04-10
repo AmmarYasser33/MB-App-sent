@@ -273,16 +273,28 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                         label.form-label(for="addWorkflowSite") Site
                         select#addWorkflowSite.form-select(name="WorkflowSite", aria-label="Site")
                           option(value="")
-                          option(value="41") 41
-                          option(value="41-A") 41-A
-                          option(value="41-B") 41-B
-                          option(value="42") 42
-                          option(value="43") 43
-                          option(value="44") 44
-                          option(value="45") 45
-                          option(value="45-A") 45-A
-                          option(value="45-B") 45-B
-                          option(value="45-C") 45-C
+                          - if (loggedUser.mb === "MB5")
+                              option(value="41") 41
+                              option(value="41-A") 41-A
+                              option(value="41-B") 41-B
+                              option(value="41-C") 41-C
+                              option(value="42") 42
+                              option(value="43") 43
+                              option(value="45") 45
+                              option(value="47") 47
+                              option(value="49") 49
+                              option(value="70") 70
+                            
+                          - else if (loggedUser.mb === "MB6")
+                              option(value="70") 70
+                              option(value="70-A") 70-A
+                              option(value="70-B") 70-B
+                              option(value="70-C") 70-C
+                              option(value="74") 74
+                              option(value="74-A") 74-A
+                              option(value="74-B") 74-B
+                              option(value="77") 77
+
                       .col-12.col-md-6
                         label.form-label(for="addWorkflowType") Type
                         select#addWorkflowType.form-select(name="WorkflowType", aria-label="Type")
