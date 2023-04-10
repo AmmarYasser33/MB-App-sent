@@ -129,6 +129,13 @@ showEditFormBtns.forEach((btn) => {
             editForm.innerHTML = html;
 
             addEvent();
+
+            // allow select multiple rows
+            document
+              .querySelectorAll("#editselect2Multiple")
+              .forEach((select) =>
+                select.addEventListener("mousedown", selectMultiple)
+              );
           });
         });
       })
@@ -230,3 +237,25 @@ function addEvent() {
     //
   });
 }
+
+// *
+// select multiple rows
+const addSelectElement = document.getElementById("addselect2Multiple");
+
+function selectMultiple(e) {
+  e.preventDefault();
+
+  const targetOption = e.target;
+
+  if (targetOption.tagName === "OPTION") {
+    targetOption.selected = !targetOption.selected;
+    /*
+    const selectedOptions = Array.from(addSelectElement.selectedOptions);
+    const selectedValues = selectedOptions.map((option) => option.value);
+
+    console.log(selectedValues);
+    */
+  }
+}
+
+addSelectElement.addEventListener("mousedown", selectMultiple);

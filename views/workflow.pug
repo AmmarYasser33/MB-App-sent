@@ -176,7 +176,7 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                               option(value="Inspection") Inspection
                           .col-12.col-sm-6.col-lg-4
                             label.form-label(for="select2Multiple") Team:
-                            select#select2MultipleFilter.teamMembersFilter.select2.form-select(multiple="", data-select2-id="select2Multiple")
+                            select#select2MultipleFilter.teamMembersFilter.select2.form-select(multiple, size=5, data-select2-id="select2Multiple")
                               option(value="") Any
                               for employee in employeesList
                                 option(value=employee.name)= employee.name
