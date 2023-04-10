@@ -232,15 +232,22 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                               label.form-label MB:
                               select#mbFilter.form-control.dt-input
                                 option(value="") All
-                                option(value="MB1") MB1
-                                option(value="MB2") MB2
-                                option(value="MB3") MB3
-                                option(value="MB4") MB4
-                                option(value="MB5") MB5
-                                option(value="MB6") MB6
-                                option(value="MB7") MB7
-                                option(value="MB8") MB8
-                                option(value="MB9") MB9
+                                if (loggedUser.listMb)
+                                  for mb in loggedUser.listMb
+                                    option(value=mb)= mb
+                                else
+                                  option(value=loggedUser.mb)= loggedUser.mb
+                                
+                                
+                                //- option(value="MB1") MB1
+                                //- option(value="MB2") MB2
+                                //- option(value="MB3") MB3
+                                //- option(value="MB4") MB4
+                                //- option(value="MB5") MB5
+                                //- option(value="MB6") MB6
+                                //- option(value="MB7") MB7
+                                //- option(value="MB8") MB8
+                                //- option(value="MB9") MB9
                   hr.mt-0
                   .card-datatable.table-responsive
                     table.dt-advanced-search.table
@@ -281,6 +288,7 @@ html.light-style.layout-navbar-fixed.layout-menu-fixed(lang="en", dir="ltr", dat
                               span.badge.bg-label-danger= user.po
                             else if user.po == "Not PO"
                               span.badge.bg-label-warning= user.po
+                          td(style="display: none")= user.mb
                           td                          
                             a#showEditModelBtn.btn.btn-sm.btn-icon.item-edit(data-bs-toggle="modal", data-bs-target="#editrecord", data-userId=`${user.sarid}`)
                               i.text-primary.ti.ti-pencil
