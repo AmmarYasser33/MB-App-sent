@@ -9,10 +9,6 @@ const warehouseRouter = require("./routes/warehouseRouter");
 const workflowRouter = require("./routes/workflowRouter");
 const viewRouter = require("./routes/viewRouter");
 
-// TODO: Add explanation comments
-// TODO: Add explanation comments
-// TODO: Add explanation comments
-
 const app = express();
 dotenv.config({ path: "./config.env" });
 
